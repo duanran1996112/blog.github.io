@@ -1,0 +1,767 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Es6," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Promise，异步加载 js 的方法">
+<meta name="keywords" content="Es6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Promise">
+<meta property="og:url" content="http://yoursite.com/2017/05/24/Promise/index.html">
+<meta property="og:site_name" content="Web 前端">
+<meta property="og:description" content="Promise，异步加载 js 的方法">
+<meta property="og:updated_time" content="2017-05-24T11:14:11.053Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Promise">
+<meta name="twitter:description" content="Promise，异步加载 js 的方法">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/24/Promise/"/>
+
+
+
+
+
+  <title>Promise | Web 前端</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Web 前端</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一个专业的 Web 前端博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/24/Promise/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="段然">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/./images/mySculpture.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Web 前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Promise</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T17:22:22+08:00">
+                2017-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Es6/" itemprop="url" rel="index">
+                    <span itemprop="name">Es6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  Promise，异步加载 js 的方法
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前述"><a href="#前述" class="headerlink" title="前述"></a>前述</h2><p>在 JavaScript 的世界中，所有代码都是单线程执行的</p>
+<p>由于这个“缺陷”，导致 JavaScript 的所有网络操作，浏览器事件，都必须是异步执行</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>ES6 原生提供了 Promise 对象</p>
+<p>所谓 Promise，就是一个对象，用来传递异步操作的消息。</p>
+<p>Promise 对象有三个状态：<font color="red">Pending，Resolved，Rejected</font></p>
+<p>Pending（Promise 对象的起始状态，进行中）<br>Resolved（Promise 对象的成功状态）<br>Rejected（Promise 对象的失败状态）</p>
+<p>Promise 对象的状态只可能从 <font color="red">Pending -&gt; Resolved</font> 或者 <font color="red">Pending -&gt; Rejected</font>，而且状态只要改变后不会再变</p>
+<h2 id="创建一个-Promise-对象"><a href="#创建一个-Promise-对象" class="headerlink" title="创建一个 Promise 对象"></a>创建一个 Promise 对象</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var promise = new Promise(<span class="keyword">function</span>(resolve,reject)&#123; ... &#125;);</div></pre></td></tr></table></figure>
+<p>Promise 对象接受一个函数作为参数，函数的形参有两个参数，<font color="red">resolve，reject</font>，是原生 Js 中自带的方法</p>
+<p>resolve：代表 Promise 成功时（Pending -&gt; Resolved）发送什么<br>reject：代表 Promise 失败时（Pending -&gt; Rejected）发送什么</p>
+<p>1.例如：我们想在 成功 时发送 success，失败 时发送 fail</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var promise = new Promise(<span class="keyword">function</span> (resolve,reject) &#123;</div><div class="line">    <span class="keyword">if</span>(成功) &#123;</div><div class="line">        resolve(<span class="string">'success'</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        reject(<span class="string">'fail'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>2.那我们如何知道什么时候成功，什么时候失败呢？</p>
+<p>以<font color="red"> 图片预加预加载 </font>举例：当图片加载成功时我们把这个 img 标签发送，失败时我们发送 error 字符串。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> loadImage (url) &#123;</div><div class="line">    var promise = new Promise(<span class="keyword">function</span> (resolve,reject) &#123;</div><div class="line">        var img = new Image();</div><div class="line">        img.onload = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">            resolve(img);</div><div class="line">        &#125;</div><div class="line">        img.onerror = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">            reject(<span class="string">'error'</span>)</div><div class="line">        &#125;</div><div class="line">        img.src = url</div><div class="line">    &#125;)</div><div class="line">    <span class="built_in">return</span> promise;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3.那发送的 数据 我们又如何获取到呢？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">// 首先创建 Promise 对象</div><div class="line">var promise = new Promise(<span class="keyword">function</span> (resolve,reject) &#123;</div><div class="line">    <span class="keyword">if</span>(成功) &#123;</div><div class="line">        resolve(<span class="string">'success'</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        reject(<span class="string">'fail'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//利用 promise.then 获取</div><div class="line">promise.then(<span class="keyword">function</span> (data) &#123;</div><div class="line">    // data 就是我们 resolve 发送的数据</div><div class="line">    console.log(data)</div><div class="line">    // 如果成功的话 控制台会打印 success</div><div class="line">&#125;,<span class="keyword">function</span> (error) &#123;</div><div class="line">    // error 就是我们 reject 发送的数据</div><div class="line">    console.log(error)</div><div class="line">    // 如果失败的话 控制台会打印 fail</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>4.下面我们说一下 promise.then 这个方法</p>
+<p>promise.then 接受<font color="red"> 两个函数 </font>作为参数（第二个参数可以不传）</p>
+<p>第一个函数为 promise 对象成功时的回调函数<br>第二个函数为 promise 对象失败时的回调函数</p>
+<p>两个函数均有一个形参<br>第一个函数形参为，promise 对象成功时传递来的数据，也就是例子中的 success<br>第二个函数形参为，promise 对象失败时传递来的数据，也就是例子中的 fail</p>
+<p>5.Promise 对象还有一个 promise.catch 方法</p>
+<p>如果 promise.then 不传第二个参数的话，我们还可以用 promise.catch 方法来获取 promise 对象失败时传递来的数据</p>
+<p>promise.catch 接受<font color="red"> 一个函数 </font>作为参数</p>
+<p>函数为 promise 对象失败时的回调函数</p>
+<p>函数形参为，promise 对象失败时传递来的数据，也就是例子中的 fail</p>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">// 首先创建 Promise 对象</div><div class="line">var promise = new Promise(<span class="keyword">function</span> (resolve,reject) &#123;</div><div class="line">    <span class="keyword">if</span>(成功) &#123;</div><div class="line">        resolve(<span class="string">'success'</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        reject(<span class="string">'fail'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//利用 promise.then 获取</div><div class="line">promise.then(<span class="keyword">function</span> (data) &#123;</div><div class="line">    // data 就是我们 resolve 发送的数据</div><div class="line">    console.log(data)</div><div class="line">    // 如果成功的话 控制台会打印 success</div><div class="line">&#125;).catch(<span class="keyword">function</span> (error) &#123; //利用 promise.catch 获取 失败信息</div><div class="line">    // error 就是我们 reject 发送的数据</div><div class="line">    console.log(error)</div><div class="line">    // 如果失败的话 控制台会打印 fail</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="我们利用今天学的封装一个-Promise-的-Ajax"><a href="#我们利用今天学的封装一个-Promise-的-Ajax" class="headerlink" title="我们利用今天学的封装一个 Promise 的 Ajax"></a>我们利用今天学的封装一个 Promise 的 Ajax</h2><p>利用我们之前封装的 Ajax 与 Promise 相结合</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">function</span> ajax (url,method,<span class="built_in">type</span>,data) &#123;</div><div class="line">    var promise = new Promise(<span class="keyword">function</span> (resolve,reject) &#123;</div><div class="line">        var xml = null;</div><div class="line">        <span class="keyword">if</span>(window.XMLHttpRequest) &#123;</div><div class="line">            xml = new window.XMLHttpRequest();</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            xml = new ActiveXObject(<span class="string">'Mircosoft.XMLHTTP'</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(method == <span class="string">"GET"</span>) &#123;</div><div class="line">            url += <span class="string">'?'</span> + data + new Date().getTime();</div><div class="line">            xml.open(method,url,<span class="built_in">type</span>);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            xml.open(method,url,<span class="built_in">type</span>);</div><div class="line">        &#125;</div><div class="line">        xml.onreadystatechange = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">            <span class="keyword">if</span>(xml.readyState == 4 &amp;&amp; xml.status == 200) &#123;</div><div class="line">                resolve(xml.responseText);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                reject(<span class="string">'error'</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(method == <span class="string">"GET"</span>) &#123;</div><div class="line">            xml.send();</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            xml.setRequestHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/x-www-form-urle'</span>);</div><div class="line">            xml.send(data);</div><div class="line">        &#125;</div><div class="line">    &#125;) </div><div class="line">    <span class="built_in">return</span> promise;    </div><div class="line">&#125;</div><div class="line"></div><div class="line">var myAjax = ajax(<span class="string">'http://www.baidu.com'</span>,<span class="string">'GET'</span>,<span class="literal">false</span>);</div><div class="line"></div><div class="line">myAjax.then(<span class="keyword">function</span> (data) &#123;</div><div class="line">    console.log(data);</div><div class="line">&#125;,<span class="keyword">function</span> (err) &#123;</div><div class="line">    console.log(err);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Es6/" rel="tag"># Es6</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/./images/mySculpture.jpg"
+               alt="段然" />
+          <p class="site-author-name" itemprop="name">段然</p>
+           
+              <p class="site-description motion-element" itemprop="description">(254).toString(16).toUpperCase()</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/duanran1996112" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前述"><span class="nav-number">1.</span> <span class="nav-text">前述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">2.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建一个-Promise-对象"><span class="nav-number">3.</span> <span class="nav-text">创建一个 Promise 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我们利用今天学的封装一个-Promise-的-Ajax"><span class="nav-number">4.</span> <span class="nav-text">我们利用今天学的封装一个 Promise 的 Ajax</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">段然</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
