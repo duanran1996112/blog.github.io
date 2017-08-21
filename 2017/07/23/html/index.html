@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/23/html/index.html">
 <meta property="og:site_name" content="Web 前端">
 <meta property="og:description" content="html + html5 基础内容">
-<meta property="og:updated_time" content="2017-08-01T10:21:25.000Z">
+<meta property="og:updated_time" content="2017-08-21T02:56:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html">
 <meta name="twitter:description" content="html + html5 基础内容">
@@ -385,14 +385,15 @@
       
 
       
-        <h2 id="html-amp-html5"><a href="#html-amp-html5" class="headerlink" title="html &amp; html5"></a>html &amp; html5</h2><h3 id="行级元素-amp-块级元素"><a href="#行级元素-amp-块级元素" class="headerlink" title="行级元素 &amp; 块级元素"></a>行级元素 &amp; 块级元素</h3><p>行级元素（inline）：span，a，em，strong，br<br>块级元素（block）：div，h1~h6，p，ul，li，ol<br>行级块元素（inline-block）：img，input</p>
+        <h2 id="html-amp-html5"><a href="#html-amp-html5" class="headerlink" title="html &amp; html5"></a>html &amp; html5</h2><h3 id="行级元素-amp-块级元素"><a href="#行级元素-amp-块级元素" class="headerlink" title="行级元素 &amp; 块级元素"></a>行级元素 &amp; 块级元素</h3><p>行级元素（inline）：span，a，em，strong，br<br>块级元素（block）：div，h1~h6，p，ul，li，ol<br>行级块元素（inline-block）：img，input，textarea，select，button</p>
 <h3 id="单标签-amp-双标签"><a href="#单标签-amp-双标签" class="headerlink" title="单标签 &amp; 双标签"></a>单标签 &amp; 双标签</h3><p>单标签：img，input，meta，link，br，hr<br>双标签：div，span，h1~h6，p，script，style</p>
-<h3 id="meta-标签"><a href="#meta-标签" class="headerlink" title="meta 标签"></a>meta 标签</h3><p>&lt;meta name=”keywords” content=”xxx”/&gt;<br>用于告诉搜索引擎，你网页的关键字</p>
+<h3 id="meta-标签"><a href="#meta-标签" class="headerlink" title="meta 标签"></a>meta 标签</h3><p>&lt;meta charset=”utf-8/gbk/…”/&gt;<br>用于设置字符集</p>
+<p>&lt;meta name=”keywords” content=”xxx”/&gt;<br>用于告诉搜索引擎，你网页的关键字</p>
 <p>&lt;meta name=”description” content=”xxx”/&gt;<br>用于告诉搜索引擎，你网站的主要内容</p>
 <p>&lt;meta name=”viewport” content=”width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no”/&gt;<br>用于设计移动端网页（页面可视区大小 等于 手机尺寸）</p>
 <p>&lt;meta name=”robots” content=”none”/&gt;<br>用于搜索引擎爬虫的索引方式</p>
 <p>&lt;meta name=”author” content=”xxx”/&gt;<br>用于标注网页的作者 　</p>
-<h3 id="input-标签"><a href="#input-标签" class="headerlink" title="input 标签"></a>input 标签</h3><p>input 标签传统 type 属性：text／password／image／radio／checkbox／button／submit／reset／file<br>input 标签 h5 type 属性：tel／email／number／url／search</p>
+<h3 id="input-标签"><a href="#input-标签" class="headerlink" title="input 标签"></a>input 标签</h3><p>input 标签传统 type 属性：text／password／image／radio／checkbox／button／submit／reset／file<br>input 标签 h5 type 属性：email／url／number／range／date／…</p>
 <p>问题：input 默认显示 你好，若输入内容则消失？<br>答案：</p>
 <p>方法一：onfocus，onblur<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> </div><div class="line">       onfocus=<span class="string">"if(this.value=='你好')&#123;this.value=''&#125;"</span> </div><div class="line">       onblur=<span class="string">"if(!this.value)&#123;this.value='你好'&#125;"</span> </div><div class="line">       value=<span class="string">"你好"</span>&gt;</div></pre></td></tr></table></figure></p>
 <p>方法二：h5 placeholder<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> placeholder=<span class="string">"你好"</span>&gt;</div></pre></td></tr></table></figure></p>
@@ -400,9 +401,10 @@
 <p>非结构性标签：audio，video，canvas</p>
 <p>问题：若 ie 不兼容 h5 新标签怎么办？<br>答案：使用 js 的 createElement 方法，在 js 代码生成标签插入到页面里。</p>
 <h3 id="Audio-amp-Video-标签"><a href="#Audio-amp-Video-标签" class="headerlink" title="Audio &amp; Video 标签"></a>Audio &amp; Video 标签</h3><p>audio 和 video 标签上的一些 属性 与 方法:</p>
-<p>自动播放: autoplay<br>进度条: controls<br>播放: play<br>暂停: pause<br>已经播放时间: currentTime<br>视频的总时长: duration<br>音量: volume<br>播放速度: playbackRate</p>
+<p>自动播放: autoplay（行间属性）<br>进度条: controls（行间属性）<br>播放: play（js 方法）<br>暂停: pause（js 方法）<br>已经播放时间: currentTime（js 方法）<br>视频的总时长: duration（js 方法）<br>音量: volume（js 方法）（0～1）<br>播放速度: playbackRate（js 方法）（默认1）</p>
 <h3 id="canvas-基本操作（canvas-位图-缩放失真）"><a href="#canvas-基本操作（canvas-位图-缩放失真）" class="headerlink" title="canvas 基本操作（canvas 位图 缩放失真）"></a>canvas 基本操作（canvas 位图 缩放失真）</h3><p>使用canvas：<br>var canvas =document.getElementById(‘myCanvas’);<br>var ctx = canvas.getContext(‘2d’);</p>
-<p>绘制线段：ctx.moveTo(x1,y1) ctx.lineTo(x2,y2)<br>绘制矩形：ctx.rect(x,y,dx,dy) ctx.fillRect() ctx.strokRect()<br>绘制圆形：ctx.arc(x,y,r,起始弧度,结束弧度,弧度方向(0或1))<br>绘制文本：ctx.fillText(‘xxx’)<br>嵌入图片：ctx.drawImage(img, 0, 0, w, h, 0, 0, canvasW, canvasH)</p>
+<p>绘制线段：ctx.moveTo(x1,y1) + ctx.lineTo(x2,y2) + ctx.fill() / ctx.stroke()<br>绘制矩形：ctx.rect(x,y,dx,dy) + ctx.fill() / ctx.stroke() 或 ctx.fillRect(x,y,dx,dy) 或 ctx.strokRect(x,y,dx,dy)<br>绘制圆形：ctx.arc(x,y,r,起始弧度,结束弧度,弧度方向(0或1)) + ctx.fill() / ctx.stroke()<br>绘制文本：ctx.fillText(‘xxx’) 或 ctx.strokeText(‘xxx’)<br>嵌入图片：ctx.drawImage(img,x,y,dx,dy)</p>
+<p>设置 canvas 填充 &amp; 描边 样式：ctx.fillStyle ～ ctx.strokeStyle<br>开始绘制 &amp; 结束绘制：ctx.beginPath() ～ ctx.closePath()</p>
 <p>问题：canvas高斯模糊怎么做？<br>答案：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var canvas =document.getElementById(<span class="string">'myCanvas'</span>);</div><div class="line">var ctx = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line"></div><div class="line">// w：图片的宽，h：图片的高，canvasW：画布的宽，canvasH：画布的高，gaussBluer：高斯模糊封装函数</div><div class="line"></div><div class="line">ctx.drawImage(img, 0, 0, w, h, 0, 0, canvasW, canvasH) // 将图片放到canvas</div><div class="line"></div><div class="line">var pixel = ctx.getImageData(0, 0, canvasH, canvasH) // 获取图片像素信息，受到同源策略的限制</div><div class="line"></div><div class="line">gaussBlur(pixel); // 高斯模糊</div><div class="line"></div><div class="line">ctx.putImageData(pixel, 0, 0); // 将像素信息放回canvas</div><div class="line"></div><div class="line">var imageData = canvas.toDataURL(); // 将canvas的内容抽取成一张图片，受到同源策略的限制</div><div class="line"></div><div class="line">dom.css(<span class="string">'background-image'</span>, <span class="string">'url('</span> + imageData + <span class="string">')'</span>); // 变成图片的src</div></pre></td></tr></table></figure></p>
 <h3 id="svg-基本操作（svg-矢量图-缩放不失真）"><a href="#svg-基本操作（svg-矢量图-缩放不失真）" class="headerlink" title="svg 基本操作（svg 矢量图 缩放不失真）"></a>svg 基本操作（svg 矢量图 缩放不失真）</h3><p>使用svg：<br>&lt;svg width=“500px” height=“500px”&gt;&lt;/svg&gt;</p>
 <p>绘制直线: &lt;line x1=”xxx” y1=”xxx” x2=”xxx” y2=”xxx”&gt;&lt;/line&gt;<br>绘制矩形: &lt;rect x=”xxx” y=”xxx” width=”xxx” height=”xxx” rx=”xxx” ry=”xxx”″&gt;&lt;/rect&gt;<br>绘制圆形: &lt;circle r=”xxx” cx=”xxx” cy=”xxx”&gt;&lt;/circle&gt;<br>绘制椭圆: &lt;ellipse rx=”xxx” ry=”xxx” cx=”xxx” cy=”xxx”&gt;&lt;/ellipse&gt;</p>
