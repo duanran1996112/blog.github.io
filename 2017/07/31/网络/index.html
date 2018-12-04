@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/31/网络/index.html">
 <meta property="og:site_name" content="Web 前端">
 <meta property="og:description" content="网络 + ajax + jsonp 基础内容">
-<meta property="og:updated_time" content="2017-08-01T10:21:22.000Z">
+<meta property="og:updated_time" content="2018-12-03T10:05:40.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络">
 <meta name="twitter:description" content="网络 + ajax + jsonp 基础内容">
@@ -442,9 +442,9 @@
 <h4 id="cors-跨域资源共享"><a href="#cors-跨域资源共享" class="headerlink" title="cors 跨域资源共享"></a>cors 跨域资源共享</h4><p>cors 与 jsonp 相比的优点：<br>JSONP 只支持 GET 请求，CORS 支持所有类型的 HTTP 请求（get／post／put／delete）</p>
 <p>使用 cors：</p>
 <p>1.<br>在 请求头 中，添加 <font color="red">Origin</font> 字段。<br>Origin 字段 用来说明，请求来自哪个源（协议 + 域名 + 端口）。<br>服务器根据这个值，决定是否同意这次请求。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Origin: http://www.duanran96.com</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Origin: https://duanran1996112.github.io/</div></pre></td></tr></table></figure>
 <p>2.<br>在 响应头 中，服务器会返回 <font color="red">Access-Control-Allow-Origin</font> 字段。<br>Access-Control-Allow-Origin 字段的值 要么是 Origin 的值，要么是 *（接受 任意 域名 的请求），表示 接受 这个 域名 的请求。<br>要是没有返回 Access-Control-Allow-Origin 字段，则代表出错了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origin: http://www.duanran96.com </div><div class="line">或 </div><div class="line">Access-Control-Allow-Origin: *</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origin: https://duanran1996112.github.io/</div><div class="line">或 </div><div class="line">Access-Control-Allow-Origin: *</div></pre></td></tr></table></figure>
 
       
     </div>

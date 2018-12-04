@@ -108,7 +108,7 @@
 <meta property="og:image" content="http://yoursite.com/img/Performance/Performance9.jpg">
 <meta property="og:image" content="http://yoursite.com/img/Performance/Performance10.jpg">
 <meta property="og:image" content="http://yoursite.com/img/Performance/Performance11.jpg">
-<meta property="og:updated_time" content="2018-12-03T08:45:40.686Z">
+<meta property="og:updated_time" content="2018-12-03T10:23:40.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chrome 开发者工具中的 Performance">
 <meta name="twitter:description" content="浅谈谷歌浏览器调试工具中的 Performance">
@@ -435,6 +435,166 @@
 <p><img src="/img/Performance/Performance11.jpg" alt="Performance 展示"></p>
 </li>
 </ol>
+<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><p>Summary 面板对应的 颜色 与 事件描述。</p>
+<ol>
+<li>蓝色(Loading)：网络通信和 HTML 解析。</li>
+<li>黄色(Scripting)：JavaScript 执行。</li>
+<li>紫色(Rendering)：样式计算和布局，即重排。</li>
+<li>绿色(Painting)：重绘。</li>
+<li>灰色(other)：其它事件花费的时间。</li>
+<li>白色(Idle)：空闲时间。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">颜色</th>
+<th style="text-align:center">事件</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">蓝色(Loading)</td>
+<td style="text-align:center">Parse HTML</td>
+<td style="text-align:center">浏览器执行 HTML 解析</td>
+</tr>
+<tr>
+<td style="text-align:center">蓝色(Loading)</td>
+<td style="text-align:center">Finish Loading</td>
+<td style="text-align:center">网络请求完毕事件</td>
+</tr>
+<tr>
+<td style="text-align:center">蓝色(Loading)</td>
+<td style="text-align:center">Receive Data</td>
+<td style="text-align:center">请求的响应数据到达事件，如果响应数据很大（拆包），可能会多次触发该事件</td>
+</tr>
+<tr>
+<td style="text-align:center">蓝色(Loading)</td>
+<td style="text-align:center">Receive Response</td>
+<td style="text-align:center">响应头报文到达时触发</td>
+</tr>
+<tr>
+<td style="text-align:center">蓝色(Loading)</td>
+<td style="text-align:center">Send Request</td>
+<td style="text-align:center">发送网络请求时触发</td>
+</tr>
+<tr>
+<td style="text-align:center">黄色(Scripting)</td>
+<td style="text-align:center">Animation Frame Fired</td>
+<td style="text-align:center">一个定义好的动画帧发生并开始回调处理时触发</td>
+</tr>
+<tr>
+<td style="text-align:center">黄色(Scripting)</td>
+<td style="text-align:center">Cancel Animation Frame</td>
+<td style="text-align:center">取消一个动画帧时触发</td>
+</tr>
+<tr>
+<td style="text-align:center">黄色(Scripting)</td>
+<td style="text-align:center">GC Event</td>
+<td style="text-align:center">垃圾回收时触发</td>
+</tr>
+<tr>
+<td style="text-align:center">黄色(Scripting)</td>
+<td style="text-align:center">DOMContentLoaded</td>
+<td style="text-align:center">当页面中的DOM内容加载并解析完毕时触发</td>
+</tr>
+<tr>
+<td style="text-align:center">黄色(Scripting)</td>
+<td style="text-align:center">Evaluate Script</td>
+<td style="text-align:center">A script was evaluated</td>
+</tr>
+<tr>
+<td style="text-align:center">黄色(Scripting)</td>
+<td style="text-align:center">Event</td>
+<td style="text-align:center">js事件</td>
+</tr>
+<tr>
+<td style="text-align:center">黄色(Scripting)</td>
+<td style="text-align:center">Function Call</td>
+<td style="text-align:center">只有当浏览器进入到js引擎中时触发</td>
+</tr>
+<tr>
+<td style="text-align:center">黄色(Scripting)</td>
+<td style="text-align:center">Install Timer</td>
+<td style="text-align:center">创建计时器（调用 setTimeout() 和 setInterval()）时触发</td>
+</tr>
+<tr>
+<td style="text-align:center">黄色(Scripting)</td>
+<td style="text-align:center">Request Animation Frame</td>
+<td style="text-align:center">requestAnimationFrame() 调用预定一个新帧</td>
+</tr>
+<tr>
+<td style="text-align:center">黄色(Scripting)</td>
+<td style="text-align:center">Remove Timer</td>
+<td style="text-align:center">当清除一个计时器时触发</td>
+</tr>
+<tr>
+<td style="text-align:center">黄色(Scripting)</td>
+<td style="text-align:center">Time</td>
+<td style="text-align:center">调用 console.time() 触发</td>
+</tr>
+<tr>
+<td style="text-align:center">黄色(Scripting)</td>
+<td style="text-align:center">Time End</td>
+<td style="text-align:center">调用 console.timeEnd() 触发</td>
+</tr>
+<tr>
+<td style="text-align:center">黄色(Scripting)</td>
+<td style="text-align:center">Timer Fired</td>
+<td style="text-align:center">定时器激活回调后触发</td>
+</tr>
+<tr>
+<td style="text-align:center">黄色(Scripting)</td>
+<td style="text-align:center">XHR Ready State Change</td>
+<td style="text-align:center">当一个异步请求为就绪状态后触发</td>
+</tr>
+<tr>
+<td style="text-align:center">黄色(Scripting)</td>
+<td style="text-align:center">XHR Load</td>
+<td style="text-align:center">当一个异步请求完成加载后触发</td>
+</tr>
+<tr>
+<td style="text-align:center">紫色(Rendering)</td>
+<td style="text-align:center">Invalidate layout</td>
+<td style="text-align:center">当 DOM 更改导致页面布局失效时触发</td>
+</tr>
+<tr>
+<td style="text-align:center">紫色(Rendering)</td>
+<td style="text-align:center">Layout</td>
+<td style="text-align:center">页面布局计算执行时触发</td>
+</tr>
+<tr>
+<td style="text-align:center">紫色(Rendering)</td>
+<td style="text-align:center">Recalculate style</td>
+<td style="text-align:center">Chrome 重新计算元素样式时触发</td>
+</tr>
+<tr>
+<td style="text-align:center">紫色(Rendering)</td>
+<td style="text-align:center">Scroll</td>
+<td style="text-align:center">内嵌的视窗滚动时触发</td>
+</tr>
+<tr>
+<td style="text-align:center">绿色(Painting)</td>
+<td style="text-align:center">Composite Layers</td>
+<td style="text-align:center">Chrome 的渲染引擎完成图片层合并时触发</td>
+</tr>
+<tr>
+<td style="text-align:center">绿色(Painting)</td>
+<td style="text-align:center">Image Decode</td>
+<td style="text-align:center">一个图片资源完成解码后触发</td>
+</tr>
+<tr>
+<td style="text-align:center">绿色(Painting)</td>
+<td style="text-align:center">Image Resize</td>
+<td style="text-align:center">一个图片被修改尺寸后触发</td>
+</tr>
+<tr>
+<td style="text-align:center">绿色(Painting)</td>
+<td style="text-align:center">Paint</td>
+<td style="text-align:center">合并后的层被绘制到对应显示区域后触发</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -634,7 +794,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Let’s-Go"><span class="nav-number">2.</span> <span class="nav-text">Let’s Go!</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备"><span class="nav-number">2.1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟移动端"><span class="nav-number">2.2.</span> <span class="nav-text">模拟移动端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始记录运行时的性能"><span class="nav-number">2.3.</span> <span class="nav-text">开始记录运行时的性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始分析"><span class="nav-number">2.4.</span> <span class="nav-text">开始分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#帧率"><span class="nav-number">2.4.1.</span> <span class="nav-text">帧率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CPU-图表"><span class="nav-number">2.4.2.</span> <span class="nav-text">CPU 图表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NET-amp-Network"><span class="nav-number">2.4.3.</span> <span class="nav-text">NET & Network</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#屏幕快照"><span class="nav-number">2.4.4.</span> <span class="nav-text">屏幕快照</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Frames-图表"><span class="nav-number">2.4.5.</span> <span class="nav-text">Frames 图表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定位问题"><span class="nav-number">2.5.</span> <span class="nav-text">定位问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Let’s-Go"><span class="nav-number">2.</span> <span class="nav-text">Let’s Go!</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备"><span class="nav-number">2.1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟移动端"><span class="nav-number">2.2.</span> <span class="nav-text">模拟移动端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始记录运行时的性能"><span class="nav-number">2.3.</span> <span class="nav-text">开始记录运行时的性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始分析"><span class="nav-number">2.4.</span> <span class="nav-text">开始分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#帧率"><span class="nav-number">2.4.1.</span> <span class="nav-text">帧率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CPU-图表"><span class="nav-number">2.4.2.</span> <span class="nav-text">CPU 图表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NET-amp-Network"><span class="nav-number">2.4.3.</span> <span class="nav-text">NET & Network</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#屏幕快照"><span class="nav-number">2.4.4.</span> <span class="nav-text">屏幕快照</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Frames-图表"><span class="nav-number">2.4.5.</span> <span class="nav-text">Frames 图表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定位问题"><span class="nav-number">2.5.</span> <span class="nav-text">定位问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附录"><span class="nav-number">2.6.</span> <span class="nav-text">附录</span></a></li></ol></li></ol></div>
             
 
           </div>
