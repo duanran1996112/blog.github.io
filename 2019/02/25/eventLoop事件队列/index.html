@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="网络," />
+  <meta name="keywords" content="js," />
 
 
 
@@ -90,20 +90,17 @@
 
 
 
-<meta name="description" content="http缓存">
-<meta name="keywords" content="网络">
+<meta name="description" content="eventLoop事件队列">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http缓存">
-<meta property="og:url" content="http://yoursite.com/2019/02/25/http缓存/index.html">
+<meta property="og:title" content="eventLoop事件队列">
+<meta property="og:url" content="http://yoursite.com/2019/02/25/eventLoop事件队列/index.html">
 <meta property="og:site_name" content="Web 前端">
-<meta property="og:description" content="http缓存">
-<meta property="og:image" content="http://yoursite.com/img/cache/cache1.jpg">
-<meta property="og:image" content="http://yoursite.com/img/cache/cache2.jpg">
-<meta property="og:updated_time" content="2019-02-25T15:01:07.935Z">
+<meta property="og:description" content="eventLoop事件队列">
+<meta property="og:updated_time" content="2019-02-25T17:37:53.718Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http缓存">
-<meta name="twitter:description" content="http缓存">
-<meta name="twitter:image" content="http://yoursite.com/img/cache/cache1.jpg">
+<meta name="twitter:title" content="eventLoop事件队列">
+<meta name="twitter:description" content="eventLoop事件队列">
 
 
 
@@ -131,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/25/http缓存/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/02/25/eventLoop事件队列/"/>
 
 
 
 
 
-  <title>http缓存 | Web 前端</title>
+  <title>eventLoop事件队列 | Web 前端</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -287,7 +284,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/http缓存/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/eventLoop事件队列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="段然">
@@ -304,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">http缓存</h1>
+          <h1 class="post-title" itemprop="name headline">eventLoop事件队列</h1>
         
 
         <div class="post-meta">
@@ -316,7 +313,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-25T15:00:00+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-25T21:30:00+08:00">
                 2019-02-25
               </time>
             
@@ -339,8 +336,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络/" itemprop="url" rel="index">
-                    <span itemprop="name">网络</span>
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
                   </a>
                 </span>
 
@@ -363,7 +360,7 @@
 
           
               <div class="post-description">
-                  http缓存
+                  eventLoop事件队列
               </div>
           
 
@@ -377,18 +374,13 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>缓存的好处：<br>1.减少了冗余的数据传输，节省的网费。<br>2.减少了服务器的负担，提高了网站的性能。<br>3.加快了客户端加载网页的速度。</p>
-<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>http 缓存是指，当 web 请求抵达缓存时，如果本地有已缓存的副本，就可以从本地设备，而不是原始的服务器中提取这个文档</p>
-<h2 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h2><p>对于强制缓存来说，响应的 header 中会有两个字段来表明是否失效（cache-control:max-age=xxx、expires），cache-control 的优先级高于 expires。</p>
-<p>强制缓存 成功 &amp; 失败<br><img src="/img/cache/cache1.jpg" alt="强制缓存"></p>
-<p>cache-control 的只可以有 private（默认）、public、max-age=xxx，no-cache，no-store。<br>private：客户端可以缓存<br>public：客户端与代理服务器均可缓存<br>max-age=xxx：缓存内容在 xxx 秒后失效，单位：秒（相对）<br>no-cache：强制缓存无效，使用对比缓存来验证<br>no-store：任何缓存均无效</p>
-<p>expires 的值为服务器缓存的到期时间（时间戳），在到期时间内均可使用缓存数据（绝对）。</p>
-<h2 id="对比缓存"><a href="#对比缓存" class="headerlink" title="对比缓存"></a>对比缓存</h2><p>进行比较判断 请求（if-modified-since、if-none-match） 与 响应（last-modified、eTag） header 中的字段来决定是否可以使用缓存，若可以使用则返回状态码 304。</p>
-<p>对比缓存 成功 &amp; 失败<br><img src="/img/cache/cache2.jpg" alt="对比缓存"></p>
-<p>if-modified-since：上次请求时返回资源的最后修改时间（时间戳）<br>last-modified：服务器返回资源的最后修改时间（时间戳）<br>if-modified-since &gt; last-modified ? 304（对比缓存） : 200（重新请求）</p>
-<p>if-none-match：上次请求时服务器返回资源的唯一标识<br>eTag：服务器返回资源的唯一标识<br>if-none-match === eTag ? 304（对比缓存） : 200（重新请求）</p>
-<p>if-none-match + eTag &gt; if-modified-since + last-modified</p>
-<h2 id="强制开启缓存"><a href="#强制开启缓存" class="headerlink" title="强制开启缓存"></a>强制开启缓存</h2><p>应用场景：缓存静态文件（html、图片）<br>方法：<br>1.在服务器配置 cache-control:max-age 或 expires 为当前时间一年之后<br>2.在客户端设置 if-modified-since 的时间大于上次服务器修改的时间</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>javascript 是一门单线程、非阻塞的语言，所走的程序路径按照连续顺序排下来，必须先处理好前面的后面的才会执行。</p>
+<p>非阻塞是当代码需要执行一项异步任务的时候，主线程会挂起这个任务，然后在异步任务返回相应的结果时根据一定规则去执行响应的回调。</p>
+<h2 id="事件队列"><a href="#事件队列" class="headerlink" title="事件队列"></a>事件队列</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">console.log(1);</div><div class="line"> </div><div class="line"><span class="built_in">set</span>Timeout(<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    console.log(2);</div><div class="line">&#125;，1000)</div><div class="line"> </div><div class="line">console.log(3)</div><div class="line"> </div><div class="line">// 1</div><div class="line">// 3</div><div class="line">// 2</div></pre></td></tr></table></figure>
+<p>console.log(1) 和 console.log(3) 是同步代码，放在执行栈中按照顺序执行。setTimeout 是异步事件，js 引擎会将它挂起，继续执行下面的同步代码，等到一秒钟之后，js 会将这个事件加入与当前执行栈不同的另一个队列，我们称之为事件队列。被放入事件队列不会立刻执行其回调，而是等待当前执行栈中的所有任务都执行完毕，主线程处于闲置状态时，主线程会去查找事件队列是否有任务。如果有，那么主线程会从中取出排在第一位的事件，并把这个事件对应的回调放入执行栈中，然后执行其中的同步代码…，如此反复，这样就形成了一个无限的循环。</p>
+<h2 id="微任务-amp-宏任务"><a href="#微任务-amp-宏任务" class="headerlink" title="微任务 &amp; 宏任务"></a>微任务 &amp; 宏任务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">console.log(1);</div><div class="line"></div><div class="line">// 微任务</div><div class="line">Promise.resolve().then(() =&gt; &#123;</div><div class="line">    console.log(2);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 宏任务</div><div class="line"><span class="built_in">set</span>Timeout(() =&gt; &#123;</div><div class="line">    console.log(3);</div><div class="line">&#125;, 0);</div><div class="line"></div><div class="line">// 微任务</div><div class="line">Promise.resolve().then(() =&gt; &#123;</div><div class="line">    console.log(4);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">console.log(5);</div><div class="line"></div><div class="line">// 1</div><div class="line">// 5</div><div class="line">// 2</div><div class="line">// 4</div><div class="line">// 3</div></pre></td></tr></table></figure>
+<p>因为异步任务之间并不相同，因此他们的执行优先级也有区别。不同的异步任务被分为两类：微任务 和 宏任务。微任务执行优先级高于宏任务。</p>
+<p>微任务：promise<br>宏任务：setTimeout、setInterval</p>
 
       
     </div>
@@ -418,7 +410,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/网络/" rel="tag"># 网络</a>
+            <a href="/tags/js/" rel="tag"># js</a>
           
         </div>
       
@@ -431,8 +423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/24/http、https协议的区别/" rel="next" title="http、https协议的区别">
-                <i class="fa fa-chevron-left"></i> http、https协议的区别
+              <a href="/2019/02/25/call、apply实现bind/" rel="next" title="call、apply 实现 bind">
+                <i class="fa fa-chevron-left"></i> call、apply 实现 bind
               </a>
             
           </div>
@@ -441,8 +433,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/25/call、apply实现bind/" rel="prev" title="call、apply 实现 bind">
-                call、apply 实现 bind <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/25/commonjs与es6区别/" rel="prev" title="commonJs 与 es6 区别">
+                commonJs 与 es6 区别 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -592,7 +584,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存"><span class="nav-number">2.</span> <span class="nav-text">缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制缓存"><span class="nav-number">3.</span> <span class="nav-text">强制缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对比缓存"><span class="nav-number">4.</span> <span class="nav-text">对比缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制开启缓存"><span class="nav-number">5.</span> <span class="nav-text">强制开启缓存</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件队列"><span class="nav-number">2.</span> <span class="nav-text">事件队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微任务-amp-宏任务"><span class="nav-number">3.</span> <span class="nav-text">微任务 & 宏任务</span></a></li></ol></div>
             
 
           </div>

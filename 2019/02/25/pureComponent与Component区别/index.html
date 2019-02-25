@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="网络," />
+  <meta name="keywords" content="js," />
 
 
 
@@ -90,20 +90,17 @@
 
 
 
-<meta name="description" content="http缓存">
-<meta name="keywords" content="网络">
+<meta name="description" content="pureComponent 与 Component 区别">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http缓存">
-<meta property="og:url" content="http://yoursite.com/2019/02/25/http缓存/index.html">
+<meta property="og:title" content="pureComponent 与 Component 区别">
+<meta property="og:url" content="http://yoursite.com/2019/02/25/pureComponent与Component区别/index.html">
 <meta property="og:site_name" content="Web 前端">
-<meta property="og:description" content="http缓存">
-<meta property="og:image" content="http://yoursite.com/img/cache/cache1.jpg">
-<meta property="og:image" content="http://yoursite.com/img/cache/cache2.jpg">
-<meta property="og:updated_time" content="2019-02-25T15:01:07.935Z">
+<meta property="og:description" content="pureComponent 与 Component 区别">
+<meta property="og:updated_time" content="2019-02-25T18:02:23.458Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http缓存">
-<meta name="twitter:description" content="http缓存">
-<meta name="twitter:image" content="http://yoursite.com/img/cache/cache1.jpg">
+<meta name="twitter:title" content="pureComponent 与 Component 区别">
+<meta name="twitter:description" content="pureComponent 与 Component 区别">
 
 
 
@@ -131,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/25/http缓存/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/02/25/pureComponent与Component区别/"/>
 
 
 
 
 
-  <title>http缓存 | Web 前端</title>
+  <title>pureComponent 与 Component 区别 | Web 前端</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -287,7 +284,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/http缓存/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/pureComponent与Component区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="段然">
@@ -304,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">http缓存</h1>
+          <h1 class="post-title" itemprop="name headline">pureComponent 与 Component 区别</h1>
         
 
         <div class="post-meta">
@@ -316,7 +313,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-25T15:00:00+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-25T23:30:00+08:00">
                 2019-02-25
               </time>
             
@@ -339,8 +336,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络/" itemprop="url" rel="index">
-                    <span itemprop="name">网络</span>
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
                   </a>
                 </span>
 
@@ -363,7 +360,7 @@
 
           
               <div class="post-description">
-                  http缓存
+                  pureComponent 与 Component 区别
               </div>
           
 
@@ -377,18 +374,14 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>缓存的好处：<br>1.减少了冗余的数据传输，节省的网费。<br>2.减少了服务器的负担，提高了网站的性能。<br>3.加快了客户端加载网页的速度。</p>
-<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>http 缓存是指，当 web 请求抵达缓存时，如果本地有已缓存的副本，就可以从本地设备，而不是原始的服务器中提取这个文档</p>
-<h2 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h2><p>对于强制缓存来说，响应的 header 中会有两个字段来表明是否失效（cache-control:max-age=xxx、expires），cache-control 的优先级高于 expires。</p>
-<p>强制缓存 成功 &amp; 失败<br><img src="/img/cache/cache1.jpg" alt="强制缓存"></p>
-<p>cache-control 的只可以有 private（默认）、public、max-age=xxx，no-cache，no-store。<br>private：客户端可以缓存<br>public：客户端与代理服务器均可缓存<br>max-age=xxx：缓存内容在 xxx 秒后失效，单位：秒（相对）<br>no-cache：强制缓存无效，使用对比缓存来验证<br>no-store：任何缓存均无效</p>
-<p>expires 的值为服务器缓存的到期时间（时间戳），在到期时间内均可使用缓存数据（绝对）。</p>
-<h2 id="对比缓存"><a href="#对比缓存" class="headerlink" title="对比缓存"></a>对比缓存</h2><p>进行比较判断 请求（if-modified-since、if-none-match） 与 响应（last-modified、eTag） header 中的字段来决定是否可以使用缓存，若可以使用则返回状态码 304。</p>
-<p>对比缓存 成功 &amp; 失败<br><img src="/img/cache/cache2.jpg" alt="对比缓存"></p>
-<p>if-modified-since：上次请求时返回资源的最后修改时间（时间戳）<br>last-modified：服务器返回资源的最后修改时间（时间戳）<br>if-modified-since &gt; last-modified ? 304（对比缓存） : 200（重新请求）</p>
-<p>if-none-match：上次请求时服务器返回资源的唯一标识<br>eTag：服务器返回资源的唯一标识<br>if-none-match === eTag ? 304（对比缓存） : 200（重新请求）</p>
-<p>if-none-match + eTag &gt; if-modified-since + last-modified</p>
-<h2 id="强制开启缓存"><a href="#强制开启缓存" class="headerlink" title="强制开启缓存"></a>强制开启缓存</h2><p>应用场景：缓存静态文件（html、图片）<br>方法：<br>1.在服务器配置 cache-control:max-age 或 expires 为当前时间一年之后<br>2.在客户端设置 if-modified-since 的时间大于上次服务器修改的时间</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>它们几乎完全相同，但是 PureComponent 通过 prop 和 state 的浅比较来实现 shouldComponentUpdate，某些情况下可以用 PureComponent 提升性能。</p>
+<p>所谓浅比较（shallowEqual），即 react 源码中的一个函数，然后根据下面的方法进行是不是 PureComponent 的判断，帮我们做了本来应该我们在 shouldComponentUpdate 中做的事情</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (this._compositeType === CompositeTypes.PureClass) &#123;</div><div class="line">  shouldUpdate = !shallowEqual(prevProps, nextProps) || ! shallowEqual(inst.state, nextState);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="正常情况下-pureComponent-vs-Component"><a href="#正常情况下-pureComponent-vs-Component" class="headerlink" title="正常情况下 pureComponent vs Component"></a>正常情况下 pureComponent vs Component</h2><p>如下显示的是一个 IndexPage 组件，设置 一个 state 是 isShow，通过一个按钮点击可以改变它的值，结果是：初始化的时候输出的是 constructor，render，而第一次点击按钮，会输出一次 render，即重新渲染了一次，界面也会从显示 false 变成显示 true，但是当这个组件是继承自 PureComponent 的时候，再点击的时候，不会再输出 render，即不会再重新渲染了，而当这个组件是继承自 Component 时，还是会输出 render，还是会重新渲染，这时候就是 PureComponent 内部做了优化的体现。同理也适用于 string，number 等基本数据类型，因为基本数据类型，值改变了就算改变了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">import React, &#123; PureComponent &#125; from <span class="string">'react'</span>;</div><div class="line"></div><div class="line">class IndexPage extends PureComponent&#123;</div><div class="line">  <span class="function"><span class="title">constructor</span></span>() &#123;</div><div class="line">    super();</div><div class="line">    this.state = &#123;</div><div class="line">      isShow: <span class="literal">false</span></div><div class="line">    &#125;;</div><div class="line">    console.log(<span class="string">'constructor'</span>);</div><div class="line">  &#125;</div><div class="line">  changeState = () =&gt; &#123;</div><div class="line">    this.setState(&#123;</div><div class="line">      isShow: <span class="literal">true</span></div><div class="line">    &#125;)</div><div class="line">  &#125;;</div><div class="line">  <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">    console.log(<span class="string">'render'</span>);</div><div class="line">    <span class="built_in">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;button onClick=&#123;this.changeState&#125;&gt;点击&lt;/button&gt;</div><div class="line">        &lt;div&gt;&#123;this.state.isShow.toString()&#125;&lt;/div&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="存在嵌套时-pureComponent-vs-Component"><a href="#存在嵌套时-pureComponent-vs-Component" class="headerlink" title="存在嵌套时 pureComponent vs Component"></a>存在嵌套时 pureComponent vs Component</h2><p>PureComponent 不仅会影响本身，而且会影响子组件。<br>父组件继承 PureComponent，子组件继承 Component 时，重复点击按钮，父组件组及组件均不会重新渲染<br>父组件继承 PureComponent，子组件继承 PureComponent 时，父组件组及组件均不会重新渲染。<br>父组件继承 Component，子组件继承 PureComponent 时，父组件会重新渲染，子组件不会。<br>父组件继承 Component，子组件继承 Component 时，父子组件均会重新渲染。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">import React, &#123; Component, PureComponent &#125; from <span class="string">'react'</span>;</div><div class="line"></div><div class="line">class IndexPage extends PureComponent&#123;</div><div class="line">  <span class="function"><span class="title">constructor</span></span>() &#123;</div><div class="line">    super();</div><div class="line">    this.state = &#123;</div><div class="line">      isShow: <span class="literal">false</span></div><div class="line">    &#125;;</div><div class="line">    console.log(<span class="string">'constructor'</span>);</div><div class="line">  &#125;</div><div class="line">  changeState = () =&gt; &#123;</div><div class="line">    this.setState(&#123;</div><div class="line">      isShow: <span class="literal">true</span></div><div class="line">    &#125;)</div><div class="line">  &#125;;</div><div class="line">  <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">    console.log(<span class="string">'render'</span>);</div><div class="line">    <span class="built_in">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;button onClick=&#123;this.changeState&#125;&gt;点击&lt;/button&gt;</div><div class="line">        &lt;Example isShow=&#123;this.state.isShow&#125;/&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Example extends Component&#123;</div><div class="line">  <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">    console.log(<span class="string">'Example render'</span>);</div><div class="line">    <span class="built_in">return</span> (&lt;div&gt;&#123;this.props.isShow.toString()&#125;&lt;/div&gt;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>1.如果 prop 和 state 每次都会变，那么 PureComponent 的效率还不如 Component，因为进行浅比较也是需要时间。<br>2.若有 shouldComponentUpdate，则执行它，若没有这个方法会判断是不是 PureComponent，若是，进行浅比较。<br>3.若 PureComponent 中使用 shouldComponentUpdate 方法则会报错警告，提示使用 Component。</p>
 
       
     </div>
@@ -418,7 +411,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/网络/" rel="tag"># 网络</a>
+            <a href="/tags/js/" rel="tag"># js</a>
           
         </div>
       
@@ -431,8 +424,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/24/http、https协议的区别/" rel="next" title="http、https协议的区别">
-                <i class="fa fa-chevron-left"></i> http、https协议的区别
+              <a href="/2019/02/25/commonjs与es6区别/" rel="next" title="commonJs 与 es6 区别">
+                <i class="fa fa-chevron-left"></i> commonJs 与 es6 区别
               </a>
             
           </div>
@@ -440,10 +433,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/25/call、apply实现bind/" rel="prev" title="call、apply 实现 bind">
-                call、apply 实现 bind <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -592,7 +581,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存"><span class="nav-number">2.</span> <span class="nav-text">缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制缓存"><span class="nav-number">3.</span> <span class="nav-text">强制缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对比缓存"><span class="nav-number">4.</span> <span class="nav-text">对比缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制开启缓存"><span class="nav-number">5.</span> <span class="nav-text">强制开启缓存</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正常情况下-pureComponent-vs-Component"><span class="nav-number">2.</span> <span class="nav-text">正常情况下 pureComponent vs Component</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存在嵌套时-pureComponent-vs-Component"><span class="nav-number">3.</span> <span class="nav-text">存在嵌套时 pureComponent vs Component</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">4.</span> <span class="nav-text">注意</span></a></li></ol></div>
             
 
           </div>
