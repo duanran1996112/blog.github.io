@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="网络," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -90,20 +90,15 @@
 
 
 
-<meta name="description" content="http缓存">
-<meta name="keywords" content="网络">
-<meta property="og:type" content="article">
-<meta property="og:title" content="http缓存">
-<meta property="og:url" content="http://yoursite.com/2019/02/25/http缓存/index.html">
+<meta name="description" content="(254).toString(16).toUpperCase()">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Web 前端">
+<meta property="og:url" content="http://yoursite.com/archives/2019/01/index.html">
 <meta property="og:site_name" content="Web 前端">
-<meta property="og:description" content="http缓存">
-<meta property="og:image" content="http://yoursite.com/img/cache/cache1.jpg">
-<meta property="og:image" content="http://yoursite.com/img/cache/cache2.jpg">
-<meta property="og:updated_time" content="2019-02-25T15:01:07.935Z">
+<meta property="og:description" content="(254).toString(16).toUpperCase()">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http缓存">
-<meta name="twitter:description" content="http缓存">
-<meta name="twitter:image" content="http://yoursite.com/img/cache/cache1.jpg">
+<meta name="twitter:title" content="Web 前端">
+<meta name="twitter:description" content="(254).toString(16).toUpperCase()">
 
 
 
@@ -131,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/25/http缓存/"/>
+  <link rel="canonical" href="http://yoursite.com/archives/2019/01/"/>
 
 
 
 
 
-  <title>http缓存 | Web 前端</title>
+  <title>归档 | Web 前端</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -163,7 +158,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  page-archive  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -277,189 +272,251 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  <section id="posts" class="posts-collapse">
+    <span class="archive-move-on"></span>
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/http缓存/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="段然">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/./images/mySculpture.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Web 前端">
+    <span class="archive-page-counter">
+      
+      
+      
+        
+      
+      嗯..! 目前共计 22 篇日志。 继续努力。
     </span>
 
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">http缓存</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-25T15:00:00+08:00">
-                2019-02-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络/" itemprop="url" rel="index">
-                    <span itemprop="name">网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-              <div class="post-description">
-                  http缓存
-              </div>
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
 
       
       
-
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>缓存的好处：<br>1.减少了冗余的数据传输，节省的网费。<br>2.减少了服务器的负担，提高了网站的性能。<br>3.加快了客户端加载网页的速度。</p>
-<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>http 缓存是指，当 web 请求抵达缓存时，如果本地有已缓存的副本，就可以从本地设备，而不是原始的服务器中提取这个文档</p>
-<h2 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h2><p>对于强制缓存来说，响应的 header 中会有两个字段来表明是否失效（cache-control:max-age=xxx、expires），cache-control 的优先级高于 expires。</p>
-<p>强制缓存 成功 &amp; 失败<br><img src="/img/cache/cache1.jpg" alt="强制缓存"></p>
-<p>cache-control 的只可以有 private（默认）、public、max-age=xxx，no-cache，no-store。<br>private：客户端可以缓存<br>public：客户端与代理服务器均可缓存<br>max-age=xxx：缓存内容在 xxx 秒后失效，单位：秒（相对）<br>no-cache：强制缓存无效，使用对比缓存来验证<br>no-store：任何缓存均无效</p>
-<p>expires 的值为服务器缓存的到期时间（时间戳），在到期时间内均可使用缓存数据（绝对）。</p>
-<h2 id="对比缓存"><a href="#对比缓存" class="headerlink" title="对比缓存"></a>对比缓存</h2><p>进行比较判断 请求（if-modified-since、if-none-match） 与 响应（last-modified、eTag） header 中的字段来决定是否可以使用缓存，若可以使用则返回状态码 304。</p>
-<p>对比缓存 成功 &amp; 失败<br><img src="/img/cache/cache2.jpg" alt="对比缓存"></p>
-<p>if-modified-since：上次请求时返回资源的最后修改时间（时间戳）<br>last-modified：服务器返回资源的最后修改时间（时间戳）<br>if-modified-since &gt; last-modified ? 304（对比缓存） : 200（重新请求）</p>
-<p>if-none-match：上次请求时服务器返回资源的唯一标识<br>eTag：服务器返回资源的唯一标识<br>if-none-match === eTag ? 304（对比缓存） : 200（重新请求）</p>
-<p>if-none-match + eTag &gt; if-modified-since + last-modified</p>
-<h2 id="强制开启缓存"><a href="#强制开启缓存" class="headerlink" title="强制开启缓存"></a>强制开启缓存</h2><p>应用场景：缓存静态文件（html、图片）<br>方法：<br>1.在服务器配置 cache-control:max-age 或 expires 为当前时间一年之后<br>2.在客户端设置 if-modified-since 的时间大于上次服务器修改的时间</p>
 
-      
-    </div>
-
-    <div>
       
         
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/网络/" rel="tag"># 网络</a>
-          
+        <div class="collection-title">
+          <h2 class="archive-year motion-element" id="archive-year-2019">2019</h2>
         </div>
       
+      
 
       
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
         
-      
+            <a class="post-title-link" href="/2019/01/22/pureComponent与Component区别/" itemprop="url">
+              
+                <span itemprop="name">pureComponent 与 Component 区别</span>
+              
+            </a>
+        
+      </h2>
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/02/24/http、https协议的区别/" rel="next" title="http、https协议的区别">
-                <i class="fa fa-chevron-left"></i> http、https协议的区别
-              </a>
-            
-          </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-01-22T18:00:00+08:00"
+              content="2019-01-22" >
+          01-22
+        </time>
+      </div>
 
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/25/call、apply实现bind/" rel="prev" title="call、apply 实现 bind">
-                call、apply 实现 bind <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
+    
+
       
-    </div>
-  </div>
+      
+      
+
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2019/01/20/commonjs与es6区别/" itemprop="url">
+              
+                <span itemprop="name">commonJs 与 es6 区别</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-01-20T18:00:00+08:00"
+              content="2019-01-20" >
+          01-20
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+      
+      
+      
+
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2019/01/16/eventLoop事件队列/" itemprop="url">
+              
+                <span itemprop="name">eventLoop事件队列</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-01-16T18:00:00+08:00"
+              content="2019-01-16" >
+          01-16
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+      
+      
+      
+
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2019/01/15/call、apply实现bind/" itemprop="url">
+              
+                <span itemprop="name">call、apply 实现 bind</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-01-15T18:00:00+08:00"
+              content="2019-01-15" >
+          01-15
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+      
+      
+      
+
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2019/01/11/http缓存/" itemprop="url">
+              
+                <span itemprop="name">http缓存</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-01-11T18:00:00+08:00"
+              content="2019-01-11" >
+          01-11
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+      
+      
+      
+
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2019/01/10/http、https协议的区别/" itemprop="url">
+              
+                <span itemprop="name">http、https协议的区别</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-01-10T18:00:00+08:00"
+              content="2019-01-10" >
+          01-10
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+  </section>
+
+  
+
 
 
           </div>
@@ -467,10 +524,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -490,17 +543,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/./images/mySculpture.jpg"
@@ -582,22 +626,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存"><span class="nav-number">2.</span> <span class="nav-text">缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制缓存"><span class="nav-number">3.</span> <span class="nav-text">强制缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对比缓存"><span class="nav-number">4.</span> <span class="nav-text">对比缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制开启缓存"><span class="nav-number">5.</span> <span class="nav-text">强制开启缓存</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -720,9 +748,11 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
 
 
   

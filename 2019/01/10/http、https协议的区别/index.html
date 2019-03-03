@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="js," />
+  <meta name="keywords" content="网络," />
 
 
 
@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="函数柯里化">
-<meta name="keywords" content="js">
+<meta name="description" content="http、https协议的区别">
+<meta name="keywords" content="网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="函数柯里化">
-<meta property="og:url" content="http://yoursite.com/2019/02/26/函数柯里化/index.html">
+<meta property="og:title" content="http、https协议的区别">
+<meta property="og:url" content="http://yoursite.com/2019/01/10/http、https协议的区别/index.html">
 <meta property="og:site_name" content="Web 前端">
-<meta property="og:description" content="函数柯里化">
-<meta property="og:updated_time" content="2019-02-28T04:48:04.408Z">
+<meta property="og:description" content="http、https协议的区别">
+<meta property="og:updated_time" content="2019-03-03T08:57:10.813Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="函数柯里化">
-<meta name="twitter:description" content="函数柯里化">
+<meta name="twitter:title" content="http、https协议的区别">
+<meta name="twitter:description" content="http、https协议的区别">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/26/函数柯里化/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/01/10/http、https协议的区别/"/>
 
 
 
 
 
-  <title>函数柯里化 | Web 前端</title>
+  <title>http、https协议的区别 | Web 前端</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +284,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/26/函数柯里化/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/10/http、https协议的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="段然">
@@ -301,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">函数柯里化</h1>
+          <h1 class="post-title" itemprop="name headline">http、https协议的区别</h1>
         
 
         <div class="post-meta">
@@ -313,8 +313,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-26T15:00:00+08:00">
-                2019-02-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-10T18:00:00+08:00">
+                2019-01-10
               </time>
             
 
@@ -336,8 +336,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
                   </a>
                 </span>
 
@@ -360,7 +360,7 @@
 
           
               <div class="post-description">
-                  函数柯里化
+                  http、https协议的区别
               </div>
           
 
@@ -374,8 +374,16 @@
       
 
       
-        <h2 id="通用柯里化封装"><a href="#通用柯里化封装" class="headerlink" title="通用柯里化封装"></a>通用柯里化封装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> createCurry (func, args) &#123;</div><div class="line">  var funcL = func.length;</div><div class="line">  var args = args || [];</div><div class="line"></div><div class="line">  <span class="built_in">return</span> <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    var _args = [].slice.call(arguments);</div><div class="line">    [].push.apply(_args, args);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (_args.length &lt; func.length) &#123;</div><div class="line">      <span class="built_in">return</span> createCurry.call(this, func, _args);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">return</span> func.apply(this, _args);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="累加器柯里化"><a href="#累加器柯里化" class="headerlink" title="累加器柯里化"></a>累加器柯里化</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">add</span></span> () &#123;</div><div class="line">  var _args = [].slice.call(arguments);</div><div class="line"></div><div class="line">  var adder = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    var _adder = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">      _args.push(...arguments);</div><div class="line">      <span class="built_in">return</span> _adder;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    _adder.toString = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">      <span class="built_in">return</span> _args.reduce((a, b) =&gt; a + b);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">return</span> _adder;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="built_in">return</span> adder(..._args);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var a = add(1)(2)(3);</div></pre></td></tr></table></figure>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>http 是超文本传输协议，被用于在 web浏览器 与 网站服务器 之间传递信息。http 以明文的形式传递信息，不提供任何方式加密，如果 web攻击者 截取到了 web浏览器 与 网站服务器 的传输报文，就可以读懂其中的信息。因此 http协议 不适合传输一些敏感信息，例如：卡号、密码、支付信息。</p>
+<p>为了解决 http协议 这种缺陷，我们需要另一种协议 https，为了数据传输安全，https协议 在 http协议 的基础上加入了 ssl 协议，ssl 靠证书来验证服务器身份，并为 浏览器 和 服务器 之间通信加密。</p>
+<h2 id="http-与-https-的区别"><a href="#http-与-https-的区别" class="headerlink" title="http 与 https 的区别"></a>http 与 https 的区别</h2><p>1.https 需要 CA（内含申请者身份信息、公钥、私钥） 证书，一般免费的证书少，因此需要一定的费用<br>2.http 信息是明文传输，https 信息是通过 ssl 加密的<br>3.http 与 https 使用的是不同的连接方式，所用的端口也不一样，http：80，https：443<br>4.http 的连接是简单的、无状态的，https 的连接是可加密的、含有身份状态的，比 http 协议安全</p>
+<h2 id="http-建立连接（三次握手）"><a href="#http-建立连接（三次握手）" class="headerlink" title="http 建立连接（三次握手）"></a>http 建立连接（三次握手）</h2><p>1.客户端发送 SYN（SYN = 1，seq = j）包到服务器，客户端进入 SYN_SEND 状态，等待服务器确认。<br>2.服务器收到 SYN 包，确认客户端的 SYN 包从而发送 ACK（ACK = 1，ack = j + 1）包，同时自己也发送一个 SYN（SYN = 1，seq = k）包，即 SYN + ACK 包，服务器进入 SYN_RECV 状态，等待客户端确认。<br>3.收到 SYN + ACK 包，确认服务端的 SYN + ACK 包从而发送 ACK（ACK = 1，ack = k + 1）包，此包发送完毕，客户端 与 服务器 进入 ESTABLISHED 状态，完成三次握手</p>
+<p>问题：三次握手为什么二次不行？<br>解答：为了实现可靠传输，避免资源的浪费。<br>详解：假设 客户端 向 服务端 传送一个报文，在某一个网络节点长时间滞留了，以至于延误了很长时间到达 服务端。本来是一个早已失效的报文段，而 服务端 误以为是 客户端 又发出一次新的连接请求，于是向 客户端 发出报文端确认，同意连接。假定不使用三次握手 服务端 已经建立连接，而由于 客户端 没有发出新的请求所以不会理睬 服务端，所以这样 服务端 的资源就白白浪费了。</p>
+<h2 id="https-建立连接-（一次握手）"><a href="#https-建立连接-（一次握手）" class="headerlink" title="https 建立连接 （一次握手）"></a>https 建立连接 （一次握手）</h2><p>1.客户端 发起 https 请求<br>2.服务端 配置数字证书（自制、CA），证书中含有公钥、私钥<br>3.服务端 向 客户端 传送证书，含有公钥<br>4.客户端 解析 证书，如果存在异常弹出警告，如果没有问题生成一个随机值，通过公钥进行加密<br>5.客户端 向 服务端 传送证书加密后的随机值<br>6.服务端 通过私钥解密该随机值，然后把内容通过该随机值进行加密<br>7.服务端 向 客户端 传输加密后的信息<br>8.客户端 通过随机值解密 服务端 传递过来的信息</p>
+<p>问题：对称加密、非对称加密、HASH算法的区别？<br>解答：<br>对称加密 -&gt; 加密与解密使用一对相同的密钥。（AES、DES）<br>非对称加密 -&gt; 加密与解密使用不同的密钥，一个公钥，一个私钥，公钥加密的只有私钥才能解密，私钥加密的只有公钥才能解密。（RSA、DSA）<br>HASH算法 加密 -&gt; 一种不可逆的加密，假设在 客户端 使用 HASH算法 加密用户信息，则 服务端事 先存储的用户信息已经为 HASH算法 的加密信息。（MD5、SHA1、SHA256）</p>
+<h2 id="http-断开连接（四次挥手）"><a href="#http-断开连接（四次挥手）" class="headerlink" title="http 断开连接（四次挥手）"></a>http 断开连接（四次挥手）</h2><p>1.客户端发送 FIN（FIN = 1，seq = j）包到服务器，客户端进入 FIN_WAIT_1 状态。<br>2.服务端收到 FIN 包，确认客户端的 FIN 包从而发送 ACK（ACK = 1，ack = j + 1）包，服务器进入 CLOSE_WAIT 状态（半关闭状态），客户端进入 FIN_WAIT_2 状态。<br>3.服务端发送 FIN（FIN = 1，seq = k）包到客户端，服务器进入 LAST-ACK 状态。<br>4.客户端收到 FIN 包，确认服务端的 FIN 包从而发送 ACK（ACK = 1，ack = k + 1）包，客户端进入 TIME_WAIT 状态，服务端进入 CLOSED 状态。</p>
+<p>问题：四次挥手为什么两次不行？<br>解答：为了确保数据能够完成传输。<br>详解：未必在 客户端 要断开的时候，服务端 所有数据都传递完成，所以 服务端 要通过半关闭状态将剩余数据传递完成。</p>
+
       
     </div>
 
@@ -404,7 +412,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/js/" rel="tag"># js</a>
+            <a href="/tags/网络/" rel="tag"># 网络</a>
           
         </div>
       
@@ -417,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/25/pureComponent与Component区别/" rel="next" title="pureComponent 与 Component 区别">
-                <i class="fa fa-chevron-left"></i> pureComponent 与 Component 区别
+              <a href="/2018/12/06/Chrome插件、方法补充/" rel="next" title="Chrome 插件、方法补充">
+                <i class="fa fa-chevron-left"></i> Chrome 插件、方法补充
               </a>
             
           </div>
@@ -427,8 +435,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/26/实现一个简单的promise/" rel="prev" title="实现一个简单的 promise">
-                实现一个简单的 promise <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/11/http缓存/" rel="prev" title="http缓存">
+                http缓存 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -578,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#通用柯里化封装"><span class="nav-number">1.</span> <span class="nav-text">通用柯里化封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#累加器柯里化"><span class="nav-number">2.</span> <span class="nav-text">累加器柯里化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-与-https-的区别"><span class="nav-number">2.</span> <span class="nav-text">http 与 https 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-建立连接（三次握手）"><span class="nav-number">3.</span> <span class="nav-text">http 建立连接（三次握手）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#https-建立连接-（一次握手）"><span class="nav-number">4.</span> <span class="nav-text">https 建立连接 （一次握手）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-断开连接（四次挥手）"><span class="nav-number">5.</span> <span class="nav-text">http 断开连接（四次挥手）</span></a></li></ol></div>
             
 
           </div>

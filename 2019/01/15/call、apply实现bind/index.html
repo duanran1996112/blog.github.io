@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="eventLoop事件队列">
+<meta name="description" content="call、apply 实现 bind">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="eventLoop事件队列">
-<meta property="og:url" content="http://yoursite.com/2019/02/25/eventLoop事件队列/index.html">
+<meta property="og:title" content="call、apply 实现 bind">
+<meta property="og:url" content="http://yoursite.com/2019/01/15/call、apply实现bind/index.html">
 <meta property="og:site_name" content="Web 前端">
-<meta property="og:description" content="eventLoop事件队列">
-<meta property="og:updated_time" content="2019-02-25T17:37:53.718Z">
+<meta property="og:description" content="call、apply 实现 bind">
+<meta property="og:updated_time" content="2019-03-03T08:57:10.813Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="eventLoop事件队列">
-<meta name="twitter:description" content="eventLoop事件队列">
+<meta name="twitter:title" content="call、apply 实现 bind">
+<meta name="twitter:description" content="call、apply 实现 bind">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/25/eventLoop事件队列/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/01/15/call、apply实现bind/"/>
 
 
 
 
 
-  <title>eventLoop事件队列 | Web 前端</title>
+  <title>call、apply 实现 bind | Web 前端</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +284,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/eventLoop事件队列/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/15/call、apply实现bind/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="段然">
@@ -301,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">eventLoop事件队列</h1>
+          <h1 class="post-title" itemprop="name headline">call、apply 实现 bind</h1>
         
 
         <div class="post-meta">
@@ -313,8 +313,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-25T21:30:00+08:00">
-                2019-02-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-15T18:00:00+08:00">
+                2019-01-15
               </time>
             
 
@@ -360,7 +360,7 @@
 
           
               <div class="post-description">
-                  eventLoop事件队列
+                  call、apply 实现 bind
               </div>
           
 
@@ -374,14 +374,9 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>javascript 是一门单线程、非阻塞的语言，所走的程序路径按照连续顺序排下来，必须先处理好前面的后面的才会执行。</p>
-<p>非阻塞是当代码需要执行一项异步任务的时候，主线程会挂起这个任务，然后在异步任务返回相应的结果时根据一定规则去执行响应的回调。</p>
-<h2 id="事件队列"><a href="#事件队列" class="headerlink" title="事件队列"></a>事件队列</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">console.log(1);</div><div class="line"> </div><div class="line"><span class="built_in">set</span>Timeout(<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    console.log(2);</div><div class="line">&#125;，1000)</div><div class="line"> </div><div class="line">console.log(3)</div><div class="line"> </div><div class="line">// 1</div><div class="line">// 3</div><div class="line">// 2</div></pre></td></tr></table></figure>
-<p>console.log(1) 和 console.log(3) 是同步代码，放在执行栈中按照顺序执行。setTimeout 是异步事件，js 引擎会将它挂起，继续执行下面的同步代码，等到一秒钟之后，js 会将这个事件加入与当前执行栈不同的另一个队列，我们称之为事件队列。被放入事件队列不会立刻执行其回调，而是等待当前执行栈中的所有任务都执行完毕，主线程处于闲置状态时，主线程会去查找事件队列是否有任务。如果有，那么主线程会从中取出排在第一位的事件，并把这个事件对应的回调放入执行栈中，然后执行其中的同步代码…，如此反复，这样就形成了一个无限的循环。</p>
-<h2 id="微任务-amp-宏任务"><a href="#微任务-amp-宏任务" class="headerlink" title="微任务 &amp; 宏任务"></a>微任务 &amp; 宏任务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">console.log(1);</div><div class="line"></div><div class="line">// 微任务</div><div class="line">Promise.resolve().then(() =&gt; &#123;</div><div class="line">    console.log(2);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 宏任务</div><div class="line"><span class="built_in">set</span>Timeout(() =&gt; &#123;</div><div class="line">    console.log(3);</div><div class="line">&#125;, 0);</div><div class="line"></div><div class="line">// 微任务</div><div class="line">Promise.resolve().then(() =&gt; &#123;</div><div class="line">    console.log(4);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">console.log(5);</div><div class="line"></div><div class="line">// 1</div><div class="line">// 5</div><div class="line">// 2</div><div class="line">// 4</div><div class="line">// 3</div></pre></td></tr></table></figure>
-<p>因为异步任务之间并不相同，因此他们的执行优先级也有区别。不同的异步任务被分为两类：微任务 和 宏任务。微任务执行优先级高于宏任务。</p>
-<p>微任务：promise<br>宏任务：setTimeout、setInterval</p>
-
+        <h2 id="Call"><a href="#Call" class="headerlink" title="Call"></a>Call</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Function.prototype.bind = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">  var _this = this;</div><div class="line">  var context = [].shift.call(arguments);</div><div class="line">  var arg = [].slice.call(arguments);</div><div class="line"></div><div class="line">  <span class="built_in">return</span> <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    var newArg = [].concat.call(arg, [].concat.slice(arguments));</div><div class="line">    <span class="built_in">return</span> _this.call(context, newArg);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Apply"><a href="#Apply" class="headerlink" title="Apply"></a>Apply</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Function.prototype.bind = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">  var _this = this;</div><div class="line">  var context = [].shift.call(arguments);</div><div class="line">  var arg = [].slice.call(arguments);</div><div class="line"></div><div class="line">  <span class="built_in">return</span> <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    var newArg = [].concat.call(arg, [].concat.slice(arguments));</div><div class="line">    <span class="built_in">return</span> _this.apply(context, newArg);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h2>
       
     </div>
 
@@ -423,8 +418,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/25/call、apply实现bind/" rel="next" title="call、apply 实现 bind">
-                <i class="fa fa-chevron-left"></i> call、apply 实现 bind
+              <a href="/2019/01/11/http缓存/" rel="next" title="http缓存">
+                <i class="fa fa-chevron-left"></i> http缓存
               </a>
             
           </div>
@@ -433,8 +428,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/25/commonjs与es6区别/" rel="prev" title="commonJs 与 es6 区别">
-                commonJs 与 es6 区别 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/16/eventLoop事件队列/" rel="prev" title="eventLoop事件队列">
+                eventLoop事件队列 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -584,7 +579,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件队列"><span class="nav-number">2.</span> <span class="nav-text">事件队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微任务-amp-宏任务"><span class="nav-number">3.</span> <span class="nav-text">微任务 & 宏任务</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Call"><span class="nav-number">1.</span> <span class="nav-text">Call</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apply"><span class="nav-number">2.</span> <span class="nav-text">Apply</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续"><span class="nav-number">3.</span> <span class="nav-text">未完待续</span></a></li></ol></div>
             
 
           </div>
