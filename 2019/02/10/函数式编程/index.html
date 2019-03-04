@@ -1,0 +1,811 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="函数式编程">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数式编程">
+<meta property="og:url" content="http://yoursite.com/2019/02/10/函数式编程/index.html">
+<meta property="og:site_name" content="Web 前端">
+<meta property="og:description" content="函数式编程">
+<meta property="og:image" content="http://yoursite.com/img/function/function1.jpg">
+<meta property="og:updated_time" content="2019-03-04T07:31:59.517Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="函数式编程">
+<meta name="twitter:description" content="函数式编程">
+<meta name="twitter:image" content="http://yoursite.com/img/function/function1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/10/函数式编程/"/>
+
+
+
+
+
+  <title>函数式编程 | Web 前端</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Web 前端</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一个专业的 Web 前端博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/10/函数式编程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="段然">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/./images/mySculpture.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Web 前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">函数式编程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-10T18:00:00+08:00">
+                2019-02-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  函数式编程
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="函数式编程定义"><a href="#函数式编程定义" class="headerlink" title="函数式编程定义"></a>函数式编程定义</h2><p>函数式编程：泛函编程，是一种编程范式，它将电脑运算视为数学上的函数计算。</p>
+<p>个人理解：函数式编程是依赖纯函数的，同时函数式编程有两个最基本的运算：合成和柯里化。</p>
+<h2 id="纯函数（函数式编程的基石，无副作用的函数）"><a href="#纯函数（函数式编程的基石，无副作用的函数）" class="headerlink" title="纯函数（函数式编程的基石，无副作用的函数）"></a>纯函数（函数式编程的基石，无副作用的函数）</h2><p>纯函数：<br>1.此函数在相同的输入值时，总是产生相同的输出。<br>2.此函数运行过程不影响运行环境。</p>
+<p>javascript 内置纯函数：Array.prototype.slice、Array.prototype.map、String.prototype.toUpperCase 等…<br>javascript 内置非纯函数：Array.prototype.splice 等…</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var <span class="built_in">test</span> = [1,2,3,4,5];</div><div class="line"></div><div class="line">// 纯的</div><div class="line">test.slice(0,3);</div><div class="line">//=&gt; [1,2,3]</div><div class="line">test.slice(0,3);</div><div class="line">//=&gt; [1,2,3]</div><div class="line">test.slice(0,3);</div><div class="line">//=&gt; [1,2,3]</div><div class="line"></div><div class="line">// 不纯的</div><div class="line">test.splice(0,3);</div><div class="line">//=&gt; [1,2,3]</div><div class="line">test.splice(0,3);</div><div class="line">//=&gt; [4,5]</div><div class="line">test.splice(0,3);</div><div class="line">//=&gt; []</div></pre></td></tr></table></figure>
+<h2 id="函数的合成"><a href="#函数的合成" class="headerlink" title="函数的合成"></a>函数的合成</h2><p>函数的合成：如果一个值要经过多个函数，才能变成另外一个值，就可以把所有中间步骤合并成一个函数，这叫做”函数的合成”。</p>
+<p>注意：函数的合成，被合成的函数需要是一个纯函数。</p>
+<p>基础通用 compose 封装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> compose (...args) &#123;</div><div class="line">  <span class="built_in">return</span> data =&gt; &#123;</div><div class="line">    <span class="built_in">return</span> args.reduceRight((a, b) =&gt; b(a), data);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>不适用函数合成 vs 使用函数合成：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">const toUpperCase = x =&gt; x.toUpperCase();</div><div class="line">const exclaim = x =&gt; `<span class="variable">$&#123;x&#125;</span>!`;</div><div class="line"></div><div class="line">// 不使用</div><div class="line">const myCompose = x =&gt; exclaim(toUpperCase(x));</div><div class="line"></div><div class="line">// 使用</div><div class="line">const myCompose = compose(toUpperCase, exclaim);</div><div class="line"></div><div class="line">myCompose(<span class="string">'Im DuanRan'</span>);</div></pre></td></tr></table></figure>
+<h2 id="函数的柯里化"><a href="#函数的柯里化" class="headerlink" title="函数的柯里化"></a>函数的柯里化</h2><p>前言：如果被合成的函数可以接受多个参数，函数的合成就会非常麻烦，所以就需要函数柯里化了。</p>
+<p>函数的柯里化：就是把一个多参数的函数，转化为单参数函数。</p>
+<p>注意：函数的柯里化，被柯里化的函数需要是一个纯函数。</p>
+<p>基础通用 curry 封装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> curry (func, ...args) &#123;</div><div class="line">  var funcL = func.length;</div><div class="line">  var args = args ? [...args] : [];</div><div class="line">  </div><div class="line">  <span class="built_in">return</span> <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    var _args = [].slice.call(arguments);</div><div class="line">    args.push(..._args);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (args.length &lt; func.length) &#123;</div><div class="line">      <span class="built_in">return</span> curry.call(this, func, ...args);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">return</span> func.call(this, ...args);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>柯里化的使用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">function</span> add (x, y, z) &#123;</div><div class="line">  <span class="built_in">return</span> x + y + z;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var add1 = curry(add);</div><div class="line">var add2 = curry(add);</div><div class="line">var add3 = curry(add);</div><div class="line"></div><div class="line">add1(1, 2, 3);</div><div class="line">add2(1, 2)(3);</div><div class="line">add3(1)(2)(3);</div></pre></td></tr></table></figure>
+<p>柯里化累加器的实现：（形如 add(1)(2)(3)(4)(5)），需要为函数添加 toString、valueOf 能将一个函数隐式的转化为 toString、valueOf 中的返回值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">add</span></span> () &#123;</div><div class="line">  var args = [].slice.call(arguments);</div><div class="line"></div><div class="line">  var _add = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    var _args = [].slice.call(arguments);</div><div class="line">    args.push(..._args);</div><div class="line"></div><div class="line">    <span class="built_in">return</span> _add;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  _add.toString = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    <span class="built_in">return</span> args.reduce((a, b) =&gt; a + b, 0);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="built_in">return</span> _add;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">var number = add(1)(2)(3)(4)(5);</div></pre></td></tr></table></figure>
+<h2 id="函数式编程的一些高阶应用"><a href="#函数式编程的一些高阶应用" class="headerlink" title="函数式编程的一些高阶应用"></a>函数式编程的一些高阶应用</h2><h3 id="Functor（函子）"><a href="#Functor（函子）" class="headerlink" title="Functor（函子）"></a>Functor（函子）</h3><p>函子：函子是函数式编程里面最重要的数据类型，也是基本的运算单位和功能单位。它的变形关系可以依次作用于每一个值，将当前容器变形成另一个容器。</p>
+<p><img src="/img/function/function1.jpg" alt="函子 展示"></p>
+<p>函子代码的实现：任何具有 map 方法的数据结构都可以当做函子的实现。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">class Functor &#123;</div><div class="line">  constructor (val) &#123;</div><div class="line">    this.val = val;</div><div class="line">  &#125;</div><div class="line">  map (f) &#123;</div><div class="line">    <span class="built_in">return</span> new Functor(f(this.val)); </div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">new Functor(<span class="string">'Im DuanRan'</span>).map(data =&gt; data.toUpperCase());</div></pre></td></tr></table></figure>
+<p>一般约定，函子的标志就是容器具有 map 方法。该方法将容器里面的每一个值，映射到另一个容器。</p>
+<h3 id="of"><a href="#of" class="headerlink" title="of"></a>of</h3><p>上面生成新的函子的时候，用了 new 命令。这实在太不像函数式编程了，因为 new 命令是面向对象编程的标志。</p>
+<p>函数式编程一般约定，函子有一个 of 方法，用来生成新的容器。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Functor &#123;</div><div class="line">  constructor (val) &#123;</div><div class="line">    this.val = val;</div><div class="line">  &#125;</div><div class="line">  map (f) &#123;</div><div class="line">    <span class="built_in">return</span> Functor.of(f(this.val)); </div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Functor.of = val =&gt; new Functor(val);</div><div class="line"></div><div class="line">Functor.of(<span class="string">'Im DuanRan'</span>).map(data =&gt; data.toUpperCase());</div></pre></td></tr></table></figure>
+<h3 id="Maybe（函子）"><a href="#Maybe（函子）" class="headerlink" title="Maybe（函子）"></a>Maybe（函子）</h3><p>函子接受各种函数，处理容器内部的值。这里就有一个问题，容器内部的值可能是一个空值（比如 null ），而外部函数未必有处理空值的机制，如果传入空值，很可能就会出错。Maybe 函子为 map 方法设置了空值检查。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Maybe &#123;</div><div class="line">  constructor (val) &#123;</div><div class="line">    this.val = val;</div><div class="line">  &#125;</div><div class="line">  map(f) &#123;</div><div class="line">    <span class="built_in">return</span> this.val ? Maybe.of(f(this.val)) : Maybe.of(null);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Maybe.of = val =&gt; new Maybe(val);</div><div class="line"></div><div class="line">Maybe.of(null).map(data =&gt; data.toUpperCase());</div></pre></td></tr></table></figure>
+<h3 id="Either（函子）"><a href="#Either（函子）" class="headerlink" title="Either（函子）"></a>Either（函子）</h3><p>条件运算 if else 是最常见的运算之一，函数式编程里面，使用 Either 函子表达。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Either &#123;</div><div class="line">  constructor (left, right) &#123;</div><div class="line">    this.left = left;</div><div class="line">    this.right = right;</div><div class="line">  &#125;</div><div class="line">  map (f) &#123;</div><div class="line">    <span class="built_in">return</span> this.right ? Either.of(this.left, f(this.right)) : Either.of(f(this.left), this.right);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Either.of = (left, right) =&gt; &#123;</div><div class="line">  <span class="built_in">return</span> new Either(left, right);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Either.of(<span class="string">'duan'</span>, <span class="string">'ran'</span>).map(data =&gt; data.toUpperCase());</div></pre></td></tr></table></figure>
+<h3 id="Applicative（函子）"><a href="#Applicative（函子）" class="headerlink" title="Applicative（函子）"></a>Applicative（函子）</h3><p>applicative 函子的意义在于，对于那些多参数的函数，就可以从多个容器之中取值，实现函子的链式操作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">class Applicative &#123;</div><div class="line">  constructor (val) &#123;</div><div class="line">    this.val = val;</div><div class="line">  &#125;</div><div class="line">  map (F) &#123;</div><div class="line">    <span class="built_in">return</span> Applicative.of(this.val(F.val));</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Applicative.of = val =&gt; new Applicative(val);</div><div class="line"></div><div class="line">class Maybe &#123;</div><div class="line">  constructor (val) &#123;</div><div class="line">    this.val = val;</div><div class="line">  &#125;</div><div class="line">  map(f) &#123;</div><div class="line">    <span class="built_in">return</span> this.val ? Maybe.of(f(this.val)) : Maybe.of(null);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Maybe.of = val =&gt; new Maybe(val);</div><div class="line"></div><div class="line">const add = x =&gt; y =&gt; x + y;</div><div class="line"></div><div class="line">Applicative.of(add).map(Maybe.of(2)).map(Maybe.of(3));</div></pre></td></tr></table></figure>
+<h3 id="Monad（函子）"><a href="#Monad（函子）" class="headerlink" title="Monad（函子）"></a>Monad（函子）</h3><p>Monad 函子的作用是，解决嵌套的函子，将嵌套的函子，总是返回一个单层的函子。它有一个 flatMap 方法，与 map 方法作用相同，唯一的区别是如果生成了一个嵌套函子，它会取出后者内部的值，保证返回的永远是一个单层的容器，不会出现嵌套的情况。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">class Monad &#123;</div><div class="line">  <span class="function"><span class="title">join</span></span> () &#123;</div><div class="line">    <span class="built_in">return</span> this.value;</div><div class="line">  &#125;</div><div class="line">  flatMap (f) &#123;</div><div class="line">    <span class="built_in">return</span> this.map(f).join();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面代码中，如果函数 f 返回的是一个函子，那么 this.map(f) 就会生成一个嵌套的函子。所以，join 方法保证了 flatMap 方法总是返回一个单层的函子。</p>
+<h2 id="函数式编程与React的关系"><a href="#函数式编程与React的关系" class="headerlink" title="函数式编程与React的关系"></a>函数式编程与React的关系</h2><p>1.React 的组件就是一个函数生成，React 中的高阶组件就是函数中的高阶函数，例如 Redux 中的 connect 和 react-router 就是放在 App 外的高阶函数。他们的原理就是将子组件传入父组件中，然后返回一个新的组件，可以复用父组件的逻辑。React 页面的渲染过程本质就是函数的嵌套调用过程。<br>2.React 中的子组件受父组件传入 props 的控制，但是子组件不可以直接修改 props，这有点类似于纯函数的特征，不改变外部状态。所以我们在开发组件时，将具有负作用的操作交给外部控制，这样组件才是相互独立的，具有极高的适应性。<br>3.在 Redux 中函数式编程的思想更为明显，Reducer 就是将一些固定的运算抽象出来，所以 Reducer 必须是一个纯函数，每次调用完成都返回一个新的对象，不直接修改状态。这样数据的操作更为清楚，不需要考虑运行的结果因其他的原因产生影响。<br>4.React 和 Redux 当中也使用了很多柯里化和函数合成的写法。</p>
+<h2 id="函数式编程的好处"><a href="#函数式编程的好处" class="headerlink" title="函数式编程的好处"></a>函数式编程的好处</h2><p>1.开发效率快，高度使用函数可以不断服用逻辑，同时函数对外无副作用。<br>2.通过函数名称可以直接理解其作用，接近自然语言。<br>3.代码清晰，真正调用的代码简单，所有细节逻辑都封装在函数内。<br>4.方便处理并发，因为纯函数不影响外部变量。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/22/pureComponent与Component区别/" rel="next" title="pureComponent 与 Component 区别">
+                <i class="fa fa-chevron-left"></i> pureComponent 与 Component 区别
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/24/实现一个简单的promise/" rel="prev" title="实现一个简单的 promise">
+                实现一个简单的 promise <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/./images/mySculpture.jpg"
+               alt="段然" />
+          <p class="site-author-name" itemprop="name">段然</p>
+           
+              <p class="site-description motion-element" itemprop="description">(254).toString(16).toUpperCase()</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/duanran1996112" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://duanran1996112.github.io/duanranHome.github.io/" target="_blank" title="MyHome">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  MyHome
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式编程定义"><span class="nav-number">1.</span> <span class="nav-text">函数式编程定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#纯函数（函数式编程的基石，无副作用的函数）"><span class="nav-number">2.</span> <span class="nav-text">纯函数（函数式编程的基石，无副作用的函数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的合成"><span class="nav-number">3.</span> <span class="nav-text">函数的合成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的柯里化"><span class="nav-number">4.</span> <span class="nav-text">函数的柯里化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式编程的一些高阶应用"><span class="nav-number">5.</span> <span class="nav-text">函数式编程的一些高阶应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Functor（函子）"><span class="nav-number">5.1.</span> <span class="nav-text">Functor（函子）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#of"><span class="nav-number">5.2.</span> <span class="nav-text">of</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maybe（函子）"><span class="nav-number">5.3.</span> <span class="nav-text">Maybe（函子）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Either（函子）"><span class="nav-number">5.4.</span> <span class="nav-text">Either（函子）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Applicative（函子）"><span class="nav-number">5.5.</span> <span class="nav-text">Applicative（函子）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Monad（函子）"><span class="nav-number">5.6.</span> <span class="nav-text">Monad（函子）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式编程与React的关系"><span class="nav-number">6.</span> <span class="nav-text">函数式编程与React的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式编程的好处"><span class="nav-number">7.</span> <span class="nav-text">函数式编程的好处</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">段然</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
