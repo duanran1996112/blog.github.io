@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/01/10/http、https协议的区别/index.html">
 <meta property="og:site_name" content="Web 前端">
 <meta property="og:description" content="http、https协议的区别">
-<meta property="og:updated_time" content="2019-03-10T14:01:21.056Z">
+<meta property="og:updated_time" content="2019-03-10T14:56:14.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http、https协议的区别">
 <meta name="twitter:description" content="http、https协议的区别">
@@ -383,6 +383,19 @@
 <p>问题：对称加密、非对称加密、HASH算法的区别？<br>解答：<br>对称加密 -&gt; 加密与解密使用一对相同的密钥。（AES、DES）<br>非对称加密 -&gt; 加密与解密使用不同的密钥，一个公钥，一个私钥，公钥加密的只有私钥才能解密，私钥加密的只有公钥才能解密。（RSA、DSA）<br>HASH算法 加密 -&gt; 一种不可逆的加密，假设在 客户端 使用 HASH算法 加密用户信息，则 服务端事 先存储的用户信息已经为 HASH算法 的加密信息。（MD5、SHA1、SHA256）</p>
 <h2 id="http-断开连接（四次挥手）"><a href="#http-断开连接（四次挥手）" class="headerlink" title="http 断开连接（四次挥手）"></a>http 断开连接（四次挥手）</h2><p>1.客户端发送 FIN/ACK（FIN = 1，ACK = 1，seq = j）包到服务器，客户端进入 FIN_WAIT_1 状态。<br>2.服务端收到 FIN 包，确认客户端的 FIN 包从而发送 ACK（ACK = 1，ack = j + 1）包，服务器进入 CLOSE_WAIT 状态（半关闭状态），客户端进入 FIN_WAIT_2 状态。<br>3.服务端发送 FIN/ACK（FIN = 1，ACK = 1，seq = k）包到客户端，服务器进入 LAST-ACK 状态。<br>4.客户端收到 FIN 包，确认服务端的 FIN 包从而发送 ACK（ACK = 1，ack = k + 1）包，客户端进入 TIME_WAIT 状态，服务端进入 CLOSED 状态。</p>
 <p>问题：四次挥手为什么两次不行？<br>解答：为了确保数据能够完成传输。<br>详解：未必在 客户端 要断开的时候，服务端 所有数据都传递完成，所以 服务端 要通过半关闭状态将剩余数据传递完成。</p>
+<h2 id="tcp-与-udp-协议的区别"><a href="#tcp-与-udp-协议的区别" class="headerlink" title="tcp 与 udp 协议的区别"></a>tcp 与 udp 协议的区别</h2><ol>
+<li>tcp 是可靠连接。udp 是不可靠连接，尽最大努力保证交付。</li>
+<li>tcp 是面向连接的。udp 不需要建立连接，发送数据前不需要建立连接。</li>
+<li>tcp 是一对一的连接。udp 是一对多的连接，udp 适用于建立视频会议。</li>
+<li>tcp 首部开销 20 个字节。udp 首部开销 8 个字节，比较小。</li>
+<li>tcp 面向字节，udp 面向报文。</li>
+</ol>
+<h2 id="http-1-x-与-2-0-协议的区别"><a href="#http-1-x-与-2-0-协议的区别" class="headerlink" title="http 1.x 与 2.0 协议的区别"></a>http 1.x 与 2.0 协议的区别</h2><ol>
+<li>http2 采用二进制格式而非文本格式进行传输，二进制协议解析起来更高效。</li>
+<li>http2 报文头部进行压缩，降低了开销，采用 HPACK 首部压缩算法。</li>
+<li>http2 让服务器可以将响应主动推送到客户端缓存中，将一些外部引入的 js、css、img 文件在建立时推送到客户端的缓存。</li>
+<li>http2 是多路复用的，一个连接可以实现并行，同时处理多个请求和响应。</li>
+</ol>
 
       
     </div>
@@ -509,7 +522,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -586,7 +599,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-与-https-的区别"><span class="nav-number">2.</span> <span class="nav-text">http 与 https 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-建立连接（三次握手）"><span class="nav-number">3.</span> <span class="nav-text">http 建立连接（三次握手）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#https-建立连接-（传输层进行-TLS（SSL）加密）"><span class="nav-number">4.</span> <span class="nav-text">https 建立连接 （传输层进行 TLS（SSL）加密）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-断开连接（四次挥手）"><span class="nav-number">5.</span> <span class="nav-text">http 断开连接（四次挥手）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-与-https-的区别"><span class="nav-number">2.</span> <span class="nav-text">http 与 https 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-建立连接（三次握手）"><span class="nav-number">3.</span> <span class="nav-text">http 建立连接（三次握手）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#https-建立连接-（传输层进行-TLS（SSL）加密）"><span class="nav-number">4.</span> <span class="nav-text">https 建立连接 （传输层进行 TLS（SSL）加密）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-断开连接（四次挥手）"><span class="nav-number">5.</span> <span class="nav-text">http 断开连接（四次挥手）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tcp-与-udp-协议的区别"><span class="nav-number">6.</span> <span class="nav-text">tcp 与 udp 协议的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-1-x-与-2-0-协议的区别"><span class="nav-number">7.</span> <span class="nav-text">http 1.x 与 2.0 协议的区别</span></a></li></ol></div>
             
 
           </div>
