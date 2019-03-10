@@ -99,7 +99,7 @@
 <meta property="og:description" content="http缓存">
 <meta property="og:image" content="http://yoursite.com/img/cache/cache1.jpg">
 <meta property="og:image" content="http://yoursite.com/img/cache/cache2.jpg">
-<meta property="og:updated_time" content="2019-03-03T08:57:10.812Z">
+<meta property="og:updated_time" content="2019-03-10T14:06:12.160Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http缓存">
 <meta name="twitter:description" content="http缓存">
@@ -379,14 +379,14 @@
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>缓存的好处：<br>1.减少了冗余的数据传输，节省的网费。<br>2.减少了服务器的负担，提高了网站的性能。<br>3.加快了客户端加载网页的速度。</p>
 <h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>http 缓存是指，当 web 请求抵达缓存时，如果本地有已缓存的副本，就可以从本地设备，而不是原始的服务器中提取这个文档</p>
-<h2 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h2><p>对于强制缓存来说，响应的 header 中会有两个字段来表明是否失效（cache-control:max-age=xxx、expires），cache-control 的优先级高于 expires。</p>
+<h2 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h2><p>对于强制缓存来说，通过判断上次服务器响应 header 中的两个字段来表明是否失效（cache-control:max-age=xxx、expires），cache-control 的优先级高于 expires。</p>
 <p>强制缓存 成功 &amp; 失败<br><img src="/img/cache/cache1.jpg" alt="强制缓存"></p>
 <p>cache-control 的只可以有 private（默认）、public、max-age=xxx，no-cache，no-store。<br>private：客户端可以缓存<br>public：客户端与代理服务器均可缓存<br>max-age=xxx：缓存内容在 xxx 秒后失效，单位：秒（相对）<br>no-cache：强制缓存无效，使用对比缓存来验证<br>no-store：任何缓存均无效</p>
 <p>expires 的值为服务器缓存的到期时间（时间戳），在到期时间内均可使用缓存数据（绝对）。</p>
 <h2 id="对比缓存"><a href="#对比缓存" class="headerlink" title="对比缓存"></a>对比缓存</h2><p>进行比较判断 请求（if-modified-since、if-none-match） 与 响应（last-modified、eTag） header 中的字段来决定是否可以使用缓存，若可以使用则返回状态码 304。</p>
 <p>对比缓存 成功 &amp; 失败<br><img src="/img/cache/cache2.jpg" alt="对比缓存"></p>
-<p>if-modified-since：上次请求时返回资源的最后修改时间（时间戳）<br>last-modified：服务器返回资源的最后修改时间（时间戳）<br>if-modified-since &gt; last-modified ? 304（对比缓存） : 200（重新请求）</p>
-<p>if-none-match：上次请求时服务器返回资源的唯一标识<br>eTag：服务器返回资源的唯一标识<br>if-none-match === eTag ? 304（对比缓存） : 200（重新请求）</p>
+<p>if-modified-since：上次请求时返回资源的最后修改时间（上次请求返回的 last-modified）（时间戳）<br>last-modified：服务器返回资源的最后修改时间（时间戳）<br>if-modified-since &gt; last-modified ? 304（对比缓存） : 200（重新请求）</p>
+<p>if-none-match：上次请求时服务器返回资源的唯一标识（上次请求返回的 eTag）<br>eTag：服务器返回资源的唯一标识<br>if-none-match === eTag ? 304（对比缓存） : 200（重新请求）</p>
 <p>if-none-match + eTag &gt; if-modified-since + last-modified</p>
 <h2 id="强制开启缓存"><a href="#强制开启缓存" class="headerlink" title="强制开启缓存"></a>强制开启缓存</h2><p>应用场景：缓存静态文件（html、图片）<br>方法：<br>1.在服务器配置 cache-control:max-age 或 expires 为当前时间一年之后<br>2.在客户端设置 if-modified-since 的时间大于上次服务器修改的时间</p>
 
@@ -515,7 +515,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
