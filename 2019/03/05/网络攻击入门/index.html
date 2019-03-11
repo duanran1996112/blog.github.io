@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="网络," />
 
 
 
@@ -90,15 +90,17 @@
 
 
 
-<meta name="description" content="(254).toString(16).toUpperCase()">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Web 前端">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta name="description" content="网络攻击入门">
+<meta name="keywords" content="网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络攻击入门">
+<meta property="og:url" content="http://yoursite.com/2019/03/05/网络攻击入门/index.html">
 <meta property="og:site_name" content="Web 前端">
-<meta property="og:description" content="(254).toString(16).toUpperCase()">
+<meta property="og:description" content="网络攻击入门">
+<meta property="og:updated_time" content="2019-03-11T00:33:58.555Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Web 前端">
-<meta name="twitter:description" content="(254).toString(16).toUpperCase()">
+<meta name="twitter:title" content="网络攻击入门">
+<meta name="twitter:description" content="网络攻击入门">
 
 
 
@@ -126,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/05/网络攻击入门/"/>
 
 
 
 
 
-  <title>归档 | Web 前端</title>
+  <title>网络攻击入门 | Web 前端</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -158,7 +160,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -272,403 +274,199 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 26 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/05/网络攻击入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="段然">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/./images/mySculpture.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Web 前端">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">网络攻击入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-05T18:00:00+08:00">
+                2019-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  网络攻击入门
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <h2 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h2><p>xss：跨站点脚本攻击。</p>
+<p>xss 的分类：</p>
+<ol>
+<li>存储型 xss：攻击者将恶意代码提交到网站的数据库，用户打开该网页时，网站的服务器将恶意代码从数据库中取出，拼接在 html 中返回给客户端，用户浏览器收到代码后解释执行，并执行其中的恶意代码。（服务端 xss）</li>
+<li>反射型 xss：攻击者构造恶意的 url，用户通过该 url 打开该网页时，网站的服务器将恶意代码从 url 中取出，拼接在 html 中返回给客户端，用户浏览器收到代码后解释执行，并执行其中的恶意代码。（服务端 xss）</li>
+<li>DOM 型 xss：攻击者通过构造恶意的 url 或 在网站进行恶意的输入时，网站的客户端根据 url 或 恶意输入，生成不正常的 dom 或为 dom 添加不正常的属性，从而执行恶意的代码。（客户端 xss，应用情况：document.write、innerHTML、location.href、iframe.src）</li>
+</ol>
+<p>xss 的预防措施：</p>
+<ol>
+<li>针对于前两种服务端的 xss 我们可以考虑使用纯前端渲染，通过 ajax 发请求获取数据，并对数据进行渲染。</li>
+<li>针对于 DOM 型的 css 我们可以客户端部分的代码，对于能直接修改 dom 或是创建 dom 到 html 中的代码做好转义。（转义工具，例如：npm -&gt; xss）</li>
+<li>同时可以强化我们的 cookie 只在 http 请求中可用，设置响应头（Set-Cookie: HttpOnly;），恶意代码就算执行也窃取不到关键信息。</li>
+</ol>
+<h2 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h2><p>csrf：跨站点伪造请求。</p>
+<p>csrf 的攻击情形：登录受信用的网站 A，并在本地生 cookie，在不登出 A 的情况下，访问不受信用的网站 B，网站 B 通过伪造的请求进行恶意攻击。</p>
+<p>csrf 的防御：</p>
+<ol>
+<li>服务端通过在 cookie 中添加一个随机数并返回给客户端，客户端在每次请求中或在表单提交中添加这个随机数（为表单增加 hash值）传递给服务端，服务端校验通过方可生效。</li>
+<li>如果不受信用的网站 B 存在 xss 攻击（不可控因素），则为了更安全，可以通过服务端返回客户端一个图形验证码或短信验证码，客户端手动输入该验证码和要传递信息一起传递给服务端，服务端校验通过方可生效。</li>
+</ol>
+<h2 id="DoS"><a href="#DoS" class="headerlink" title="DoS"></a>DoS</h2><p>dos：拒绝服务。</p>
+<p>dos 的攻击情形：迫使服务器缓冲区满，不接受新的请求，导致用户无法正常访问该网站。</p>
+<p>dos 的防御：采用流量过滤，拥塞网络带宽的流量将被过滤掉，正常的流量可以通过，可以使用防火墙、流量清洗等手段防范。</p>
+<h2 id="SQL-注入"><a href="#SQL-注入" class="headerlink" title="SQL 注入"></a>SQL 注入</h2><p>sql 注入：执行错误的 sql 语句。</p>
+<p>sql 注入的攻击情形：在访问的 url 上或在表单提交时构造不正确信息（sql 语句的一部分），从而使得服务端执行错误的 sql 语句。</p>
+<p>sql 注入的防御：在客户端对提交的表单中的信息进行正则验证，在服务端对要执行的 sql 语句进行过滤，查看是否有非法字符。</p>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2019">2019</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络/" rel="tag"># 网络</a>
+          
         </div>
       
+
+      
+        
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/03/函数节流&函数防抖/" rel="next" title="函数节流 & 函数防抖">
+                <i class="fa fa-chevron-left"></i> 函数节流 & 函数防抖
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/03/05/网络攻击入门/" itemprop="url">
-              
-                <span itemprop="name">网络攻击入门</span>
-              
-            </a>
-        
-      </h2>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-05T18:00:00+08:00"
-              content="2019-03-05" >
-          03-05
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/03/03/函数节流&函数防抖/" itemprop="url">
-              
-                <span itemprop="name">函数节流 & 函数防抖</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-03T18:00:00+08:00"
-              content="2019-03-03" >
-          03-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/03/01/从输入一个url到页面展现/" itemprop="url">
-              
-                <span itemprop="name">从输入一个url到页面展现</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-01T18:00:00+08:00"
-              content="2019-03-01" >
-          03-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/28/javascript中的栈与堆/" itemprop="url">
-              
-                <span itemprop="name">javascript 中的栈与堆</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-28T18:00:00+08:00"
-              content="2019-02-28" >
-          02-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/26/简单实现node的event模块/" itemprop="url">
-              
-                <span itemprop="name">简单实现 node 的 event 模块</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-26T18:50:46+08:00"
-              content="2019-02-26" >
-          02-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/24/实现一个简单的promise/" itemprop="url">
-              
-                <span itemprop="name">实现一个简单的 promise</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-24T18:00:00+08:00"
-              content="2019-02-24" >
-          02-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/10/函数式编程/" itemprop="url">
-              
-                <span itemprop="name">函数式编程</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-10T18:00:00+08:00"
-              content="2019-02-10" >
-          02-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/22/pureComponent与Component区别/" itemprop="url">
-              
-                <span itemprop="name">pureComponent 与 Component 区别</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-22T18:00:00+08:00"
-              content="2019-01-22" >
-          01-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/20/commonjs与es6区别/" itemprop="url">
-              
-                <span itemprop="name">commonJs 与 es6 区别</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-20T18:00:00+08:00"
-              content="2019-01-20" >
-          01-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/16/eventLoop事件队列/" itemprop="url">
-              
-                <span itemprop="name">eventLoop事件队列</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-16T18:00:00+08:00"
-              content="2019-01-16" >
-          01-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -676,6 +474,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -695,8 +497,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/./images/mySculpture.jpg"
@@ -778,6 +589,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS"><span class="nav-number">1.</span> <span class="nav-text">XSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSRF"><span class="nav-number">2.</span> <span class="nav-text">CSRF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DoS"><span class="nav-number">3.</span> <span class="nav-text">DoS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-注入"><span class="nav-number">4.</span> <span class="nav-text">SQL 注入</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -900,11 +727,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
