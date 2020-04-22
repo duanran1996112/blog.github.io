@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="js," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -90,17 +90,15 @@
 
 
 
-<meta name="description" content="简单实现 node 的 event 模块">
-<meta name="keywords" content="js">
-<meta property="og:type" content="article">
-<meta property="og:title" content="简单实现 node 的 event 模块">
-<meta property="og:url" content="http://yoursite.com/2019/02/26/简单实现node的event模块/index.html">
+<meta name="description" content="(254).toString(16).toUpperCase()">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Web 前端">
+<meta property="og:url" content="http://yoursite.com/categories/es5/基础部分/知识熟路/index.html">
 <meta property="og:site_name" content="Web 前端">
-<meta property="og:description" content="简单实现 node 的 event 模块">
-<meta property="og:updated_time" content="2019-03-03T08:57:10.813Z">
+<meta property="og:description" content="(254).toString(16).toUpperCase()">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="简单实现 node 的 event 模块">
-<meta name="twitter:description" content="简单实现 node 的 event 模块">
+<meta name="twitter:title" content="Web 前端">
+<meta name="twitter:description" content="(254).toString(16).toUpperCase()">
 
 
 
@@ -128,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/26/简单实现node的event模块/"/>
+  <link rel="canonical" href="http://yoursite.com/categories/es5/基础部分/知识熟路/"/>
 
 
 
 
 
-  <title>简单实现 node 的 event 模块 | Web 前端</title>
+  <title>分类: 知识熟路 | Web 前端</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -160,7 +158,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -274,155 +272,129 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/26/简单实现node的event模块/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="段然">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/./images/mySculpture.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Web 前端">
-    </span>
+  <section id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h1>知识熟路<small>分类</small>
+      </h1>
+    </div>
 
     
-      <header class="post-header">
+      
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">简单实现 node 的 event 模块</h1>
-        
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/04/19/Es5(执行上下文)(作用域)/" itemprop="url">
               
-                <span class="post-meta-item-text">发表于</span>
+                <span itemprop="name">Es5 执行上下文 作用域</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-26T18:50:46+08:00">
-                2019-02-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-              <div class="post-description">
-                  简单实现 node 的 event 模块
-              </div>
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h2 id="on-amp-emit-amp-off-amp-once"><a href="#on-amp-emit-amp-off-amp-once" class="headerlink" title="on &amp; emit &amp; off &amp; once"></a>on &amp; emit &amp; off &amp; once</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">Event</span></span> () &#123;</div><div class="line">  this.on = <span class="keyword">function</span> (eventName, callback) &#123;</div><div class="line">    <span class="keyword">if</span> (!this.eventObject) &#123;</div><div class="line">      this.eventObject = &#123;&#125;;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (!this.eventObject.eventName) &#123;</div><div class="line">      this.eventObject.eventName = [];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (callback) &#123;</div><div class="line">      this.eventObject.eventName.push(callback);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  this.emit = <span class="keyword">function</span> (eventName, obj) &#123;</div><div class="line">    <span class="keyword">if</span> (this.eventObject.eventName) &#123;</div><div class="line">      this.eventObject.eventName.forEach(event =&gt; &#123;</div><div class="line">        event(obj);</div><div class="line">      &#125;);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  this.off = <span class="keyword">function</span> (eventName) &#123;</div><div class="line">    <span class="keyword">if</span> (this.eventObject.eventName) &#123;</div><div class="line">      this.eventObject.eventName = [];</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  this.once = <span class="keyword">function</span> (eventName, obj) &#123;</div><div class="line">    <span class="keyword">if</span> (this.eventObject.eventName) &#123;</div><div class="line">      this.emit(eventName, obj);</div><div class="line">      this.off(eventName);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var event = new Event();</div><div class="line">event.on(<span class="string">'say'</span>, (data) =&gt; &#123;console.log(data)&#125;);</div><div class="line">event.emit(<span class="string">'say'</span>, <span class="string">'test'</span>);</div><div class="line">event.once(<span class="string">'say'</span>, <span class="string">'test'</span>);</div><div class="line">event.off(<span class="string">'say'</span>);</div></pre></td></tr></table></figure>
-      
-    </div>
-
-    <div>
-      
+            </a>
         
+      </h2>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-04-19T18:00:00+08:00"
+              content="2020-04-19" >
+          04-19
+        </time>
+      </div>
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/js/" rel="tag"># js</a>
-          
-        </div>
-      
-
-      
-        
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/02/24/实现一个简单的promise/" rel="next" title="实现一个简单的 promise">
-                <i class="fa fa-chevron-left"></i> 实现一个简单的 promise
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/28/javascript中的栈与堆/" rel="prev" title="javascript 中的栈与堆">
-                javascript 中的栈与堆 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
+    
       
-    </div>
-  </div>
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/04/18/Es5(this)/" itemprop="url">
+              
+                <span itemprop="name">Es5(this)</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-04-18T18:00:00+08:00"
+              content="2020-04-18" >
+          04-18
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/04/17/Es5(New)(Call)(Apply)(Bind)/" itemprop="url">
+              
+                <span itemprop="name">Es5 New Call Apply Bind</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-04-17T18:00:00+08:00"
+              content="2020-04-17" >
+          04-17
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/04/16/Es5继承/" itemprop="url">
+              
+                <span itemprop="name">Es5 继承</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-04-16T18:00:00+08:00"
+              content="2020-04-16" >
+          04-16
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+  </section>
+
+  
+
 
 
           </div>
@@ -430,10 +402,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -453,17 +421,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/./images/mySculpture.jpg"
@@ -478,7 +437,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -489,7 +448,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -500,7 +459,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -546,22 +505,6 @@
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#on-amp-emit-amp-off-amp-once"><span class="nav-number">1.</span> <span class="nav-text">on & emit & off & once</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
 
@@ -578,7 +521,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -683,10 +626,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
-
 
   
 

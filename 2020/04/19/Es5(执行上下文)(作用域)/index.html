@@ -1,0 +1,843 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="es5,基础部分,知识梳理," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Es5 执行上下文 作用域">
+<meta name="keywords" content="es5,基础部分,知识梳理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Es5 执行上下文 作用域">
+<meta property="og:url" content="http://yoursite.com/2020/04/19/Es5(执行上下文)(作用域)/index.html">
+<meta property="og:site_name" content="Web 前端">
+<meta property="og:description" content="Es5 执行上下文 作用域">
+<meta property="og:updated_time" content="2020-04-22T07:11:22.190Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Es5 执行上下文 作用域">
+<meta name="twitter:description" content="Es5 执行上下文 作用域">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/04/19/Es5(执行上下文)(作用域)/"/>
+
+
+
+
+
+  <title>Es5 执行上下文 作用域 | Web 前端</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Web 前端</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一个专业的 Web 前端博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/19/Es5(执行上下文)(作用域)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="段然">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/./images/mySculpture.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Web 前端">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Es5 执行上下文 作用域</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-19T18:00:00+08:00">
+                2020-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/es5/" itemprop="url" rel="index">
+                    <span itemprop="name">es5</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/es5/基础部分/" itemprop="url" rel="index">
+                    <span itemprop="name">基础部分</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/es5/基础部分/知识熟路/" itemprop="url" rel="index">
+                    <span itemprop="name">知识熟路</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  Es5 执行上下文 作用域
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h3><h4 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h4><p>Javascript 有几种代码运行环境：</p>
+<ol>
+<li>全局执行环境：Javascript 代码开始运行的默认环境；</li>
+<li>函数执行环境：代码进入一个 Javascript 函数中的环境；</li>
+</ol>
+<p>同时当 Javascript 代码执行的时候，会进入不同的执行上下文，这些执行上下文就构成了一个上下文栈。</p>
+<h4 id="执行阶段"><a href="#执行阶段" class="headerlink" title="执行阶段"></a>执行阶段</h4><p>一段 Javascript 的代码执行的时候会创建执行上下文；<br>执行上下文分为两个阶段：</p>
+<ol>
+<li>创建阶段（预编译）<br> · 创建 Scope chain（作用域链）<br> · 创建 VO/AO 对象（变量对象/活动对象）<br> · 设置 this 的值</li>
+<li>代码执行阶段<br> · 设置变量的值<br> · 设置函数变量的引用<br> · 解释并执行代码</li>
+</ol>
+<p>如果用一个对象表示执行上下文，大概是这样：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ExecutionContext = &#123;</div><div class="line">    ScopeChain: &#123; ... &#125;, 作用域链，若是全局 ScopeChain = Global.VO</div><div class="line">    VO: &#123;...&#125;, // 变量对象/活动对象</div><div class="line">    this: &#123; ... &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="VO、AO（变量对象-活动对象）"><a href="#VO、AO（变量对象-活动对象）" class="headerlink" title="VO、AO（变量对象/活动对象）"></a>VO、AO（变量对象/活动对象）</h4><ol>
+<li><p>VO（Variable Object） 变量对象：变量对象是与执行上下文相关的数据作用域，其中存储了在上下文中定义的变量和函数声明等；VO 初始化步骤如下：<br> · 根据函数的实参初始化 arguments object（函数中的 arguments）<br> · 寻找函数的形参，将函数的形参存入 VO 中，形参的值为传入的实参<br> · 寻找函数的声明，将函数的引用存入 VO 中，如果 VO 已经有重名的形参或函数会进行覆盖<br> · 寻找变量的声明，将变量存入 VO 中，值为 undefined，如果 VO 已有重名的形参或函数会不做处理</p>
+</li>
+<li><p>AO（Active Object） 活动对象：全局的执行上下文中允许通过 VO 访问变量对象，在函数的执行上下文中 VO 是不能直接访问变量对象的，需要通过 AO 访问变量对象，又称 AO 为活动对象；</p>
+</li>
+</ol>
+<p>注意：函数表达式与没有 var 声明的变量不会影响 VO/AO</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 函数表达式</div><div class="line">(<span class="keyword">function</span> <span class="function"><span class="title">test</span></span> () &#123;&#125;)</div><div class="line"></div><div class="line">// 没有 var 声明的变量</div><div class="line">a = 123;</div></pre></td></tr></table></figure>
+<p>例子1：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> func1 (i) &#123;</div><div class="line">    var a = 20;</div><div class="line">    var b = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">        console.log(1);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">function</span> <span class="function"><span class="title">b</span></span> () &#123;</div><div class="line">        console.log(2);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">func1(200);</div><div class="line"></div><div class="line">// 创建阶段 func1.VO</div><div class="line">func1.VO = &#123;</div><div class="line">    arguments: &#123;</div><div class="line">        0: 200,</div><div class="line">        length: 1</div><div class="line">    &#125;,</div><div class="line">    i: 200,</div><div class="line">    a: undefined,</div><div class="line">    b: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">        console.log(2);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 执行阶段（执行完成时） func1.VO</div><div class="line">func1.VO = &#123;</div><div class="line">    arguments: &#123;</div><div class="line">        0: 200,</div><div class="line">        length: 1</div><div class="line">    &#125;,</div><div class="line">    i: 200,</div><div class="line">    a: 20,</div><div class="line">    b: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">        console.log(1);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><h4 id="作用域的分类"><a href="#作用域的分类" class="headerlink" title="作用域的分类"></a>作用域的分类</h4><ol>
+<li>全局作用域</li>
+<li>局部作用域（函数作用域）</li>
+<li>块级作用域 （Es6：Let、Const）</li>
+</ol>
+<h4 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h4><p>全局作用域中的对象可以在代码的任何地方访问</p>
+<p>以下情况的对象在全局作用域中：</p>
+<ol>
+<li>最外层定义的函数</li>
+<li>最外层定义的变量</li>
+<li>没有通过关键字 ‘var’ 声明的变量</li>
+<li>浏览器中，window 对象的属性</li>
+</ol>
+<h4 id="局部作用域（函数作用域）"><a href="#局部作用域（函数作用域）" class="headerlink" title="局部作用域（函数作用域）"></a>局部作用域（函数作用域）</h4><p>局部作用域中的对象只能在作用域内部使用</p>
+<h4 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h4><p>每一个执行上下文中都有一个 VO，用来存放参数、函数、变量等信息；<br>在 JavaScript 代码运行中，所有用到的变量都需要去当前的 VO 中查找；<br>当找不到的时候，就会通过 ScopeChain 继续查找上层的 VO；<br>这样一级级向上查找的过程，执行上下文中的 VO 就组成了一个作用域链。</p>
+<p>例子1：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">var a = 1;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">func1</span></span> () &#123;</div><div class="line">    var a = 2;</div><div class="line">    <span class="keyword">function</span> <span class="function"><span class="title">func2</span></span> () &#123;</div><div class="line">        console.log(a);</div><div class="line">    &#125;</div><div class="line">    func2();</div><div class="line">&#125;</div><div class="line">func1 ();</div><div class="line"></div><div class="line">// 1.创建阶段 Global</div><div class="line">Global.ScopeChain = Global.VO;</div><div class="line">Global.VO = &#123;</div><div class="line">    a: undefined,</div><div class="line">    func1: <span class="function"><span class="title">function</span></span> () &#123; ... &#125;</div><div class="line">&#125;;</div><div class="line">上下文栈 = [Global];</div><div class="line"></div><div class="line">// 2.创建阶段 func1</div><div class="line">func1.ScopeChain = Global.VO; // 到上下文栈中查找 func1，在 Global.VO 中，所以为 Global</div><div class="line">func1.VO = &#123;</div><div class="line">    a: undefined,</div><div class="line">    func2: <span class="function"><span class="title">function</span></span> () &#123; ... &#125;</div><div class="line">&#125;;</div><div class="line">上下文栈 = [Global, func1];</div><div class="line"></div><div class="line">// 3.创建阶段 func2</div><div class="line">ScopeChain = func1.VO; // 到上下文栈中查找 func2，在 func1.VO 中，所以为 func1</div><div class="line">func2.VO = &#123;&#125;;</div><div class="line">上下文栈 = [Global, func1, func2];</div><div class="line"></div><div class="line">// 4.</div><div class="line">// 当执行 console.log(a) 时，发现自己 func2.VO 中没有 a 这个值；</div><div class="line">// 通过 ScopeChain 到 func1.VO 中寻找，找到 a: 2，输出 2</div></pre></td></tr></table></figure>
+<p>例子2：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">var a = 1;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">func1</span></span> () &#123;</div><div class="line">    var a = 2;</div><div class="line">    func2();</div><div class="line">&#125;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">func2</span></span> () &#123;</div><div class="line">    console.log(a);</div><div class="line">&#125;</div><div class="line">func1();</div><div class="line"></div><div class="line">// 1.创建阶段 Global</div><div class="line">Global.ScopeChain = Global.VO;</div><div class="line">Global.VO = &#123;</div><div class="line">    a: undefined,</div><div class="line">    func1: <span class="function"><span class="title">function</span></span> () &#123; ... &#125;,</div><div class="line">    func2: <span class="function"><span class="title">function</span></span> () &#123; ... &#125;</div><div class="line">&#125;;</div><div class="line">上下文栈 = [Global];</div><div class="line"></div><div class="line">// 2.创建阶段 func1</div><div class="line">func1.ScopeChain = Global.VO; // 到上下文栈中查找 func1，在 Global.VO 中，所以为 Global</div><div class="line">func1.VO = &#123;</div><div class="line">    a: undefined</div><div class="line">&#125;;</div><div class="line">上下文栈 = [Global, func1];</div><div class="line"></div><div class="line">// 3.创建阶段 func2</div><div class="line">func2.ScopeChain = Global.VO; // 到上下文栈中查找 func2，在 Global.VO 中，所以为 Global</div><div class="line">func2.VO = &#123;&#125;;</div><div class="line">上下文栈 = [Global, func1, func2];</div><div class="line"></div><div class="line">// 4.</div><div class="line">// 当执行 console.log(a) 时，发现自己 func2.VO 中没有 a 这个值；</div><div class="line">// 通过 ScopeChain 到 Global.VO 中寻找，找到 a: 1，输出 1</div></pre></td></tr></table></figure>
+<p>用一句经典的话来概括就是：函数的作用域是它声明时的作用域</p>
+<h4 id="作用域与闭包"><a href="#作用域与闭包" class="headerlink" title="作用域与闭包"></a>作用域与闭包</h4><p>在全局执行上下文中，声明的方法与变量在执行完成后不会得到释放；<br>在函数执行上下文中，当一个函数执行完成后，内部声明的方法与变量会得到释放；<br>但是有些情况下方法与变量不会被释放，就是因为在全局执行上下文中，函数的作用域链依然受到了引用；<br>闭包的原理即是如此。</p>
+<p>例子1：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">test</span></span> () &#123;</div><div class="line">    var a = 1;</div><div class="line">    <span class="keyword">function</span> <span class="function"><span class="title">test1</span></span> () &#123;</div><div class="line">        console.log(a);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> <span class="built_in">test</span>1;</div><div class="line">&#125;</div><div class="line">var t = <span class="built_in">test</span>();</div><div class="line">t();</div><div class="line"></div><div class="line">// 1.创建阶段 Global</div><div class="line">Global.ScopeChain = Global.VO;</div><div class="line">Global.VO = &#123;</div><div class="line">    t: undefined,</div><div class="line">    <span class="built_in">test</span>: <span class="function"><span class="title">function</span></span> () &#123; ... &#125;</div><div class="line">&#125;;</div><div class="line">上下文栈 = [Global];</div><div class="line"></div><div class="line">// 2.创建阶段 <span class="built_in">test</span></div><div class="line">test.ScopeChain = Global.VO;</div><div class="line">test.VO = &#123;</div><div class="line">    a: undefined,</div><div class="line">    <span class="built_in">test</span>1: <span class="function"><span class="title">function</span></span> () &#123; ... &#125;</div><div class="line">&#125;;</div><div class="line">上下文栈 = [Global, <span class="built_in">test</span>];</div><div class="line"></div><div class="line">// 3.创建阶段 <span class="built_in">test</span>1</div><div class="line"><span class="built_in">test</span>1.ScopeChain = <span class="built_in">test</span>1.VO;</div><div class="line"><span class="built_in">test</span>1.VO = &#123;&#125;;</div><div class="line">上下文栈 = [Global, <span class="built_in">test</span>, <span class="built_in">test</span>1];</div><div class="line"></div><div class="line">// 4.</div><div class="line">// 在 Global 中的执行阶段，t 被赋值为 <span class="built_in">test</span>1；</div><div class="line">// 执行 t 就相当于 <span class="built_in">test</span>1，在执行 <span class="built_in">test</span>1 中（console.log(a)）时会通过作用域进行查找，在 test.VO 中找到了 a；</div><div class="line">// 由于 t 是全局变量，所以在全局中 test.VO 依然受到了引用，导致 test.VO 不会得到释放，最终形成了闭包</div></pre></td></tr></table></figure>
+<p>所以我们为了解决闭包带来的内存消耗，只需要将上述代码放在一个函数中，在函数的执行上下文结束后，函数中的变量与方法会得到释放</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">jjbb</span></span> () &#123;</div><div class="line">    <span class="keyword">function</span> <span class="function"><span class="title">test</span></span> () &#123;</div><div class="line">        var a = 1;</div><div class="line">        <span class="keyword">function</span> <span class="function"><span class="title">test1</span></span> () &#123;</div><div class="line">            console.log(a);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">return</span> <span class="built_in">test</span>1;</div><div class="line">    &#125;</div><div class="line">    var t = <span class="built_in">test</span>();</div><div class="line">    t();</div><div class="line">&#125;</div><div class="line">jjbb();</div></pre></td></tr></table></figure>
+<h4 id="作用域与原型"><a href="#作用域与原型" class="headerlink" title="作用域与原型"></a>作用域与原型</h4><p>由于作用域链和原型链的相互作用，再查找时就形成了一个二维的查找；</p>
+<p>这个二维查找可大致总结为：在查找某一个对象的上的某一个属性时，会先根据作用域链查找到这个对象，在根据这个对象的原型链查找到这个属性；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">Object.prototype.a = 1;</div><div class="line">var obj = &#123;&#125;;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">func1</span></span> () &#123;</div><div class="line">    <span class="keyword">function</span> <span class="function"><span class="title">func2</span></span> () &#123;</div><div class="line">        console.log(obj.a);</div><div class="line">    &#125;</div><div class="line">    func2();</div><div class="line">&#125;</div><div class="line">func1();</div><div class="line"></div><div class="line">// 1.创建阶段 Global</div><div class="line">Global.ScopeChain = Global.VO;</div><div class="line">Global.VO = &#123;</div><div class="line">    obj: undefined,</div><div class="line">    func1: <span class="function"><span class="title">function</span></span> () &#123; ... &#125;</div><div class="line">&#125;;</div><div class="line">上下文栈 = [Global];</div><div class="line"></div><div class="line">// 2.创建阶段 func1</div><div class="line">func1.ScopeChain = Global.VO;</div><div class="line">func1.VO = &#123;</div><div class="line">    func2: <span class="function"><span class="title">function</span></span> () &#123; ... &#125;</div><div class="line">&#125;;</div><div class="line">上下文栈 = [Global, func1];</div><div class="line"></div><div class="line">// 3.创建阶段 func2</div><div class="line">func2.ScopeChain = func1.VO;</div><div class="line">func2.VO = &#123;&#125;;</div><div class="line">上下文栈 = [Global, func1, func2];</div><div class="line"></div><div class="line">// 4.</div><div class="line">// 当执行 console.log(obj.a) 时，发现自己 func2.VO 中没有 obj 这个值；</div><div class="line">// 通过 ScopeChain 到 Global.VO 中寻找，找到 obj: &#123;&#125;；</div><div class="line">// 通过 obj.__proto__ 向上查找在 Object.prototype 上找到 a 属性，输出 Object.prototype.a，输出 1；</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/es5/" rel="tag"># es5</a>
+          
+            <a href="/tags/基础部分/" rel="tag"># 基础部分</a>
+          
+            <a href="/tags/知识梳理/" rel="tag"># 知识梳理</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/18/Es5(this)/" rel="next" title="Es5(this)">
+                <i class="fa fa-chevron-left"></i> Es5(this)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/./images/mySculpture.jpg"
+               alt="段然" />
+          <p class="site-author-name" itemprop="name">段然</p>
+           
+              <p class="site-description motion-element" itemprop="description">(254).toString(16).toUpperCase()</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/duanran1996112" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://duanran1996112.github.io/duanranHome.github.io/" target="_blank" title="MyHome">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  MyHome
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#执行上下文"><span class="nav-number">1.</span> <span class="nav-text">执行上下文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#运行环境"><span class="nav-number">1.1.</span> <span class="nav-text">运行环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#执行阶段"><span class="nav-number">1.2.</span> <span class="nav-text">执行阶段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VO、AO（变量对象-活动对象）"><span class="nav-number">1.3.</span> <span class="nav-text">VO、AO（变量对象/活动对象）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">2.</span> <span class="nav-text">作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#作用域的分类"><span class="nav-number">2.1.</span> <span class="nav-text">作用域的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局作用域"><span class="nav-number">2.2.</span> <span class="nav-text">全局作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部作用域（函数作用域）"><span class="nav-number">2.3.</span> <span class="nav-text">局部作用域（函数作用域）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作用域链"><span class="nav-number">2.4.</span> <span class="nav-text">作用域链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作用域与闭包"><span class="nav-number">2.5.</span> <span class="nav-text">作用域与闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作用域与原型"><span class="nav-number">2.6.</span> <span class="nav-text">作用域与原型</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">段然</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
